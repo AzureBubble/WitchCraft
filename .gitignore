@@ -13,8 +13,6 @@
 /ProjectSettings/UnityConnectSettings.asset
 /[Uu]ser[Ss]ettings/
 /Assets/Scripts/Test
-/Assets/Scenes/Test
-/Assets/Scenes/Test.meta
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
