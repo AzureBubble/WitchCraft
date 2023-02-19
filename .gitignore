@@ -9,6 +9,9 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/Assets/AssetStoreTools*
+/ProjectSettings/UnityConnectSettings.asset
+/[Uu]ser[Ss]ettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -58,3 +61,19 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Ignore default-2021.dwlt file
+default-2021.dwlt
+
+# IL2CPP generated files
+/Generated/
+
+# Ignore XRSettings.asset file
+ProjectSettings/XRSettings.asset
+
+# Build and debug logs
+/[Ll]ogs/
+/[Ll]og/
+/Logs
+/Temp
+/[Ee]ditor_[Ll]og/
+/[Ee]ditor-[Ll]og/
