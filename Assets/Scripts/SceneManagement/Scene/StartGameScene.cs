@@ -5,7 +5,7 @@ using LoadSceneMode = UnityEngine.SceneManagement.LoadSceneMode;
 using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
 using UnityScene = UnityEngine.SceneManagement.Scene;
 
-namespace SceneManager.Scene
+namespace SceneManagement.Scene
 {
     public class StartGameScene : BaseScene
     {
@@ -15,7 +15,7 @@ namespace SceneManager.Scene
 
         public override void OnEnter()
         {
-            Debug.Log($"{this}£º¿ªÊ¼¼ÓÔØ³¡¾°{this.SceneName}");
+            Debug.Log($"{this}ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½{this.SceneName}");
             //this.panelManager = new PanelManager(new PanelFactory());
             UnitySceneManager.LoadScene(this.SceneName);
             UnitySceneManager.sceneLoaded += SceneLoaded;
@@ -29,7 +29,7 @@ namespace SceneManager.Scene
 
         private void SceneLoaded(UnityScene scene, LoadSceneMode mode)
         {
-            Debug.Log($"{this}£º³¡¾°¼ÓÔØÍê±Ï{this.SceneName}");
+            Debug.Log($"{this}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½{this.SceneName}");
 
 
             //this.panelManager.Push(new StartPanel());

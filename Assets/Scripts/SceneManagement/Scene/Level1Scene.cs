@@ -5,7 +5,7 @@ using LoadSceneMode = UnityEngine.SceneManagement.LoadSceneMode;
 using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
 using UnityScene = UnityEngine.SceneManagement.Scene;
 
-namespace SceneManager.Scene
+namespace SceneManagement.Scene
 {
     public class Level1Scene : BaseScene
     {

@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SceneManager.Scene;
+
+using SceneManagement;
+using SceneManagement.Scene;
 
 
 public class MainController : MonoBehaviour
@@ -10,7 +12,7 @@ public class MainController : MonoBehaviour
     public static MainController Instance { get; private set; }
 
     // 场景切换管理器
-    public SceneManager.SceneManager SceneManager { get; private set; }
+    public SceneManager SceneManager { get; private set; }
 
     public bool IsGameEnd { get; private set; }
 
@@ -27,8 +29,8 @@ public class MainController : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        this.SceneManager = new SceneManager.SceneManager();
-        this.IsGameEnd = true;
+        this.SceneManager = new SceneManager();
+        this.IsGameEnd = false;
 
         DontDestroyOnLoad(this.gameObject);
     }
@@ -38,7 +40,7 @@ public class MainController : MonoBehaviour
     {
         this.SceneManager.SetScene(new StartGameScene());
 
-        //this.SceneManager.SetScene(new Level1Scene());
+        this.SceneManager.SetScene(new Level1Scene());
     }
 
     // Update is called once per frame
