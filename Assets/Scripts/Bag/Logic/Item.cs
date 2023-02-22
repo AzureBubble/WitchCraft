@@ -9,6 +9,17 @@ public class Item : MonoBehaviour
     [SerializeField]
     private ItemName itemName;
 
+    [SerializeField]
+    private GameObject buttonF;
+
+    private void Update()
+    {
+        if (buttonF.activeSelf && Input.GetKeyDown(KeyCode.F))
+        {
+            ItemClick();
+        }
+    }
+
     #region 道具的点击事件
 
     public void ItemClick()
@@ -22,9 +33,17 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
-            ItemClick();
+            buttonF.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            buttonF.SetActive(false);
         }
     }
 }
