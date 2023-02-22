@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class BagManger : Singleton<BagManger>
 {
-    // 获取背包
+    // 保存场景中的道具状态
+    private Dictionary<ItemName, bool> itemAvaiableDict = new Dictionary<ItemName, bool>();
+
+    // 获取背包数据结构
     [SerializeField]
     private SO_ItemDataList itemData;
 
@@ -46,4 +49,56 @@ public class BagManger : Singleton<BagManger>
     }
 
     #endregion 使用道具
+
+    #region 场景加载前执行的方法
+
+    private void OnBeforeSceneUnLoadEvent()
+    {
+        // 找到当前场景中的所有道具 Item
+        foreach (var item in FindObjectsOfType<Item>())
+        {
+            // 如果道具状态字典中不存在改道具，则添加进字典里
+            if (!itemAvaiableDict.ContainsKey(item.ItemName))
+            {
+                itemAvaiableDict.Add(item.ItemName, true);
+            }
+        }
+    }
+
+    #endregion 场景加载前执行的方法
+
+    #region 场景加载后执行的方法
+
+    private void OnAfterSceneLoadEvent()
+    {
+        // 找到当前场景中的所有道具 Item
+        foreach (var item in FindObjectsOfType<Item>())
+        {
+            // 如果道具状态字典中不存在改道具，则添加进字典里
+            if (!itemAvaiableDict.ContainsKey(item.ItemName))
+            {
+                itemAvaiableDict.Add(item.ItemName, true);
+            }
+            else
+            {
+                // 设置场景中道具显示状态是字典中的状态
+                item.gameObject.SetActive(itemAvaiableDict[item.ItemName]);
+            }
+        }
+    }
+
+    #endregion 场景加载后执行的方法
+
+    #region 拾取道具的时候，修改道具的状态位不可见
+
+    private void OnUpdateUIEvent(ItemDetails itemDetails)
+    {
+        // 拾取道具的时候，修改道具的状态为不可见
+        if (itemDetails != null)
+        {
+            itemAvaiableDict[itemDetails.itemName] = false;
+        }
+    }
+
+    #endregion 拾取道具的时候，修改道具的状态位不可见
 }

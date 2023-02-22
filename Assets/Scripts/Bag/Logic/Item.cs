@@ -12,6 +12,8 @@ public class Item : MonoBehaviour
     [SerializeField]
     private GameObject buttonF;
 
+    public ItemName ItemName { get => itemName; }
+
     private void Update()
     {
         if (buttonF.activeSelf && Input.GetKeyDown(KeyCode.F))
@@ -25,7 +27,7 @@ public class Item : MonoBehaviour
     public void ItemClick()
     {
         // 添加到背包中并隐藏道具
-        BagManger.Instance.AddItem(itemName);
+        BagManger.Instance.AddItem(ItemName);
         gameObject.SetActive(false);
     }
 
