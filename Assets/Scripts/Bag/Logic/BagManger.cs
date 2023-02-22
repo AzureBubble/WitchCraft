@@ -1,29 +1,49 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BagManger : Singleton<BagManger>
 {
-    // »ñÈ¡±³°ü
+    // è·å–èƒŒåŒ…
     [SerializeField]
     private SO_ItemDataList itemData;
 
-    // ±³°üÁ´±í
+    // èƒŒåŒ…é“¾è¡¨
     [SerializeField]
     private List<ItemName> itemList = new List<ItemName>();
 
-    #region Ìí¼ÓµÀ¾ßµ½±³°üÖĞ
+    [SerializeField]
+    private GameObject copperLight;
+
+    private void Update()
+    {
+        UseProps();
+    }
+
+    #region æ·»åŠ é“å…·åˆ°èƒŒåŒ…ä¸­
 
     public void AddItem(ItemName itemName)
     {
         if (!itemList.Contains(itemName))
         {
-            // ±³°üÖĞ²»´æÔÚ¸ÃÊı¾İÔòÌí¼Óµ½±³°üÀï
+            // èƒŒåŒ…ä¸­ä¸å­˜åœ¨è¯¥æ•°æ®åˆ™æ·»åŠ åˆ°èƒŒåŒ…é‡Œ
             itemList.Add(itemName);
-            // Í¬Ê±ÔÚ±³°ü UI ÖĞÏÔÊ¾³öÀ´
+            // åŒæ—¶åœ¨èƒŒåŒ… UI ä¸­æ˜¾ç¤ºå‡ºæ¥
             EventHandler.CallUpdateUIEvent(itemData.GetItemDetails(itemName), itemList.Count - 1);
         }
     }
 
-    #endregion Ìí¼ÓµÀ¾ßµ½±³°üÖĞ
+    #endregion æ·»åŠ é“å…·åˆ°èƒŒåŒ…ä¸­
+
+    #region ä½¿ç”¨é“å…·
+
+    private void UseProps()
+    {
+        // ä½¿ç”¨é“å…·æ  1 çš„é“å…·
+        if (Input.GetKeyDown(KeyCode.Alpha1) && itemList.Contains(ItemName.Light))
+        {
+            copperLight.SetActive(!copperLight.activeSelf);
+        }
+    }
+
+    #endregion ä½¿ç”¨é“å…·
 }
