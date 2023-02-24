@@ -8,13 +8,15 @@ public class Interactive : MonoBehaviour
 
     private bool isDone; // 互动是否结束
 
+    public bool IsDone { get => isDone; set => isDone = value; }
+
     #region 鼠标射线检测物体
 
     public void CheckItem(ItemName itemName)
     {
-        if (itemName == requireItem && !isDone)
+        if (itemName == requireItem && !IsDone)
         {
-            isDone = true;
+            IsDone = true;
             OnClickedAction();
         }
     }

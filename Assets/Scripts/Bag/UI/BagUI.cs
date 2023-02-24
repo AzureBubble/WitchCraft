@@ -3,36 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BagUI : MonoBehaviour
+namespace Bag
 {
-    public Button leftBtn;
-    public Button rightBtn;
-    public ItemUI itemUI;
-    public int currentIndex; // 显示道具序号
-
-    private void OnEnable()
+    public class BagUI : MonoBehaviour
     {
-        EventHandler.UpdateUIEvent += OnUpdateUIEvent;
-    }
+        public Button leftBtn;
+        public Button rightBtn;
+        public ItemUI itemUI;
+        public int currentIndex; // 显示道具序号
 
-    private void OnDestroy()
-    {
-        EventHandler.UpdateUIEvent -= OnUpdateUIEvent;
-    }
-
-    private void OnUpdateUIEvent(ItemDetails itemDetails, int index)
-    {
-        if (itemDetails == null)
+        private void OnEnable()
         {
-            itemUI.SetEmpty();
-            currentIndex = -1;
-            leftBtn.interactable = false;
-            rightBtn.interactable = false;
+            EventHandler.UpdateUIEvent += OnUpdateUIEvent;
         }
-        else
+
+        private void OnDestroy()
         {
-            currentIndex = index;
-            itemUI.SetItem(itemDetails);
+            EventHandler.UpdateUIEvent -= OnUpdateUIEvent;
+        }
+
+        private void OnUpdateUIEvent(ItemDetails itemDetails, int index)
+        {
+            if (itemDetails == null)
+            {
+                itemUI.SetEmpty();
+                currentIndex = -1;
+                leftBtn.interactable = false;
+                rightBtn.interactable = false;
+            }
+            else
+            {
+                currentIndex = index;
+                itemUI.SetItem(itemDetails);
+            }
         }
     }
 }
