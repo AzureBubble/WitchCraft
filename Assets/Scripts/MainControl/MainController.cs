@@ -1,11 +1,12 @@
-﻿using System.Threading;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 using SceneManagement;
 using SceneManagement.Scene;
-using MainControl.Interface;
+using UIManagement.UIManager;
+using InputManagement;
+
 
 namespace MainControl
 {
@@ -13,13 +14,20 @@ namespace MainControl
     {
         public static MainController Instance { get; private set; }
 
+        //子系统工厂
+        public MCFactory MCFactory { get; private set; }
+
         // 场景切换管理器
         public SceneManager SceneManager { get; private set; }
 
-        public bool IsGameEnd { get; private set; }
+        //键盘输入管理器
+        public InputManager InputManager { get; private set; }
 
+        // UI管理器
+        public UIManager UIManager;
 
-        public IUIManager IUIManager;
+        public bool GameOver { get; private set; }
+
 
         void Awake()
         {
@@ -32,11 +40,20 @@ namespace MainControl
                 Destroy(this.gameObject);
             }
 
-            this.SceneManager = new SceneManager();
-            this.IUIManager = new IUIManager();
-            this.IsGameEnd = false;
-
+            Initiate();
             DontDestroyOnLoad(this.gameObject);
+        }
+
+        private void Initiate()
+        {
+            this.MCFactory = new MCFactory();
+            this.SceneManager = new SceneManager();
+
+            GameObject inputManagerObj = MCFactory.GetSubSystem(InputManager.Path);
+            SetAsChildObject(inputManagerObj);
+            this.InputManager = inputManagerObj.GetComponent<InputManager>();
+
+            this.GameOver = false;
         }
 
         // Start is called before the first frame update
@@ -45,6 +62,8 @@ namespace MainControl
             this.SceneManager.SetScene(new StartGameScene());
 
             //this.SceneManager.SetScene(new Level1Scene());
+
+            this.InputManager.RegisterKeyDown(KeyCode.T, () => { Debug.Log("test."); });
         }
 
         // Update is called once per frame
@@ -73,7 +92,5 @@ namespace MainControl
         {
             obj.transform.parent = this.transform;
         }
-
-
     }
 }

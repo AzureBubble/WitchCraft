@@ -14,6 +14,10 @@ namespace SceneManagement
             CurrentScene = null;
         }
 
+        /// <summary>
+        /// 设置要切换的场景
+        /// </summary>
+        /// <param name="scene">要载入的场景</param>
         public void SetScene(BaseScene scene)
         {
             if (this.CurrentScene != null && this.CurrentScene.SceneName != scene.SceneName)
@@ -27,6 +31,9 @@ namespace SceneManagement
             }
         }
 
+        /// <summary>
+        /// 重新加载当前场景
+        /// </summary>
         public void ResetScene()
         {
             if (this.CurrentScene != null)

@@ -39,7 +39,8 @@ namespace SceneManagement.Scene
         {
             Debug.Log($"{this}: scene load already {this.SceneName}");
             UIManager = new UIManager();
-            MainControl.MainController.Instance.IUIManager.Push(new StartGamePanel());
+            MainControl.MainController.Instance.UIManager.Push(new StartGamePanel());
+
         }
     }
 }

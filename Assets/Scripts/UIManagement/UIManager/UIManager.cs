@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UIManagement.Panel;
+using MainControl;
 
 namespace UIManagement.UIManager
 {
@@ -16,9 +17,13 @@ namespace UIManagement.UIManager
         {
             PanelStack = new Stack<BasePanel>();
             Factory = new PanelFactory();
-            SetIUIManager();
+            MainController.Instance.UIManager = this;
         }
 
+        /// <summary>
+        /// UI界面显示新面板
+        /// </summary>
+        /// <param name="panel">新面板</param>
         public void Push(BasePanel panel)
         {
             if (PanelStack.Count > 0)
@@ -32,6 +37,9 @@ namespace UIManagement.UIManager
             PanelStack.Push(panel);
         }
 
+        /// <summary>
+        /// UI界面移除最新的面板
+        /// </summary>
         public void Pop()
         {
             if (PanelStack.Count > 0)
@@ -47,6 +55,9 @@ namespace UIManagement.UIManager
             }
         }
 
+        /// <summary>
+        /// UI界面清空
+        /// </summary>
         public void PopAll()
         {
             while (PanelStack.Count > 0)
@@ -55,13 +66,6 @@ namespace UIManagement.UIManager
                 panel.OnExit();
                 Factory.DestroyPanel(panel.Type);
             }
-        }
-
-        public void SetIUIManager()
-        {
-            MainControl.MainController.Instance.IUIManager.Push += Push;
-            MainControl.MainController.Instance.IUIManager.Pop += Pop;
-            MainControl.MainController.Instance.IUIManager.PopAll += PopAll;
         }
     }
 }
