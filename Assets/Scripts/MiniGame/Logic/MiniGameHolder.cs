@@ -9,15 +9,12 @@ namespace MiniGame
         public Transform leftPoint; // 左碰撞检测点
 
         public Transform rightPoint; // 右碰撞检测点
-
-        //public bool isMove;
+        public Transform topPoint; // 上碰撞检测点
+        public Transform bottomPoint; // 下碰撞检测点
         public bool isSelected; // 是否被选中
-
         public MiniGamePlankType plankType; // 横条类型
 
         private float duration = 1f; // 移动冷却时间
-
-        private RaycastHit2D hit;
 
         private void Update()
         {
@@ -50,6 +47,7 @@ namespace MiniGame
                 }
                 if (isSelected && Input.GetKeyDown(KeyCode.UpArrow))
                 {
+                    if (PhyciscCheck(topPoint)) return;
                     if (plankType == MiniGamePlankType.Vertical)
                     {
                         transform.DOMove(new Vector3(transform.position.x, transform.position.y + 1, 0), 0.2f);
@@ -58,6 +56,7 @@ namespace MiniGame
                 }
                 if (isSelected && Input.GetKeyDown(KeyCode.DownArrow))
                 {
+                    if (PhyciscCheck(bottomPoint)) return;
                     if (plankType == MiniGamePlankType.Vertical)
                     {
                         transform.DOMove(new Vector3(transform.position.x, transform.position.y - 1, 0), 0.2f);
@@ -67,9 +66,15 @@ namespace MiniGame
             }
         }
 
+        /// <summary>
+        /// 物理检测
+        /// </summary>
+        /// <param name="tf">碰撞点位置</param>
+        /// <returns></returns>
         private bool PhyciscCheck(Transform tf)
         {
             //Debug.Log(Physics2D.OverlapPoint(tf.position).tag);
+            if (tf == null) return false;
             if (Physics2D.OverlapPoint(tf.position))
             {
                 return Physics2D.OverlapPoint(tf.position).tag == "Interactive";
@@ -77,6 +82,7 @@ namespace MiniGame
             return false;
         }
 
+        // 物品空点
         public override void EmptyClicked()
         {
             isSelected = !isSelected;
