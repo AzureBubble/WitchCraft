@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70720f3fbe07345dca5fa22aaad8c3a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactLists:
+  subObjects:
   - {fileID: 1637428520460627434}
   - {fileID: 1637428520555861309}
   - {fileID: 1637428519659258416}

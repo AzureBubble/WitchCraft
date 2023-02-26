@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UIManagement.Panel;
+using UIManagement.UITools;
 using MainControl;
 
 namespace UIManagement.UIManager
@@ -11,12 +12,12 @@ namespace UIManagement.UIManager
     {
         public Stack<BasePanel> PanelStack { get; private set; }
 
-        public PanelFactory Factory { get; private set; }
+        private PanelFactory factory;
 
         public UIManager()
         {
             PanelStack = new Stack<BasePanel>();
-            Factory = new PanelFactory();
+            factory = new PanelFactory();
             MainController.Instance.UIManager = this;
         }
 
@@ -31,8 +32,8 @@ namespace UIManagement.UIManager
                 PanelStack.Peek().OnPause();
             }
 
-            GameObject panelObject = Factory.GetSinglePanel(panel.Type);
-            panel.SetInteractObjs(panelObject.GetComponent<InteractList>().InteractObjectDict);
+            GameObject panelObject = factory.GetSinglePanel(panel.Type);
+            panel.SetUITool(new UITool(panelObject));
             panel.OnEnter();
             PanelStack.Push(panel);
         }
@@ -46,7 +47,7 @@ namespace UIManagement.UIManager
             {
                 var panel = PanelStack.Pop();
                 panel.OnExit();
-                Factory.DestroyPanel(panel.Type);
+                factory.DestroyPanel(panel.Type);
             }
             
             if (PanelStack.Count > 0)
@@ -64,7 +65,7 @@ namespace UIManagement.UIManager
             {
                 var panel = PanelStack.Pop();
                 panel.OnExit();
-                Factory.DestroyPanel(panel.Type);
+                factory.DestroyPanel(panel.Type);
             }
         }
     }

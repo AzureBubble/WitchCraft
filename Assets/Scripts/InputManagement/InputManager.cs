@@ -14,7 +14,7 @@ namespace InputManagement
         private void Awake()
         {
             LayerStack = new Stack<InputKeyLayer>();
-            PushLayer();
+            //PushLayer();
         }
 
         // Start is called before the first frame update

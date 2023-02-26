@@ -361,8 +361,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1496045619}
+  - component: {fileID: 1496045620}
   - component: {fileID: 1496045618}
+  - component: {fileID: 1496045619}
   m_Layer: 0
   m_Name: HelloWorld
   m_TagString: Untagged
@@ -382,8 +383,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8002a1ec419b64196f3504bf337822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1496045619
-Transform:
+--- !u!222 &1496045619
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496045617}
+  m_CullTransparentMesh: 1
+--- !u!224 &1496045620
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -397,6 +406,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1861485134
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +487,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

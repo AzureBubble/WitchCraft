@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UIManagement.UITools;
+
 namespace UIManagement.Panel
 {
     public abstract class BasePanel
     {
         public PanelType Type { get; private set; }
 
-        public Dictionary<string, GameObject> InteractObjs { get; private set; }
+        public UITool UITool { get; private set; }
 
         public BasePanel(string path)
         {
             Type = new PanelType(path);
         }
 
-        public void SetInteractObjs(Dictionary<string, GameObject> dict)
+        public void SetUITool(UITool tool)
         {
-            InteractObjs = dict;
+            UITool = tool;
         }
 
         public virtual void OnEnter()
