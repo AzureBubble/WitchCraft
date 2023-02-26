@@ -512,11 +512,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 201197605}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7338d3a0bbba7748883ba410d8fd3c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c043df8bc49f4046b192286a2eef0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 201197606}
   speed: 5
-  UI: {fileID: 1466129091}
+  collcap: {fileID: 201197607}
 --- !u!212 &201197609
 SpriteRenderer:
   m_ObjectHideFlags: 0
