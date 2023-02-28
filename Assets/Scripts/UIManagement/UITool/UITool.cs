@@ -6,7 +6,7 @@ namespace UIManagement.UITools
 {
     public class UITool
     {
-        private GameObject targetUI;
+        private GameObject self;
         
         public Dictionary<string, GameObject> targets = new Dictionary<string, GameObject>();
 
@@ -18,7 +18,7 @@ namespace UIManagement.UITools
 
         public UITool SetTargetUI(GameObject ui)
         {
-            targetUI = ui;
+            self = ui;
             UISubObjectSet subObjSet = ui.GetComponent<UISubObjectSet>();
             if (subObjSet != null)
             {
@@ -41,12 +41,12 @@ namespace UIManagement.UITools
 
         public T GetOrAddComponent<T>() where T : Component
         {
-            if (targetUI.GetComponent<T>() == null)
+            if (self.GetComponent<T>() == null)
             {
-                targetUI.AddComponent<T>();
+                self.AddComponent<T>();
             }
 
-            return targetUI.GetComponent<T>();
+            return self.GetComponent<T>();
         }
 
     }

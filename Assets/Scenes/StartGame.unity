@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8002a1ec419b64196f3504bf337822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mesh: {fileID: 0}
 --- !u!222 &1496045619
 CanvasRenderer:
   m_ObjectHideFlags: 0
