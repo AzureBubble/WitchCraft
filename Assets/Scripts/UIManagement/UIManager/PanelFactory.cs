@@ -31,12 +31,13 @@ namespace UIManagement.UIManager
                 }
                 GameObject panel = GameObject.Instantiate(Resources.Load<GameObject>(type.Path), canvas.transform);
                 panel.name = type.Name;
+                factory.Add(type, panel);
                 return panel;
             }
         }
 
         public void DestroyPanel(PanelType type)
-        {
+        { 
             if (factory.ContainsKey(type))
             {
                 GameObject.Destroy(factory[type]);

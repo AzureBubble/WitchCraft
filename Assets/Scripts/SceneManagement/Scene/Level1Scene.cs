@@ -40,6 +40,7 @@ namespace SceneManagement.Scene
             UIManager = new UIManager();
             MainController.Instance.InputManager.PushLayer();
             MainController.Instance.UIManager.Push(new MainPanel());
+            MainController.Instance.UIManager.Push(new DialogPanel(new DialogSystem.ListDialogData()));
         }
     }
 }
