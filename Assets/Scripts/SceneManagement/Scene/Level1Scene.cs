@@ -13,7 +13,7 @@ namespace SceneManagement.Scene
 {
     public class Level1Scene : BaseScene
     {
-        private static string sceneName = "Level_01";
+        private static readonly string sceneName = "Level_01";
 
         public UIManager UIManager { get; private set; }
 
@@ -21,7 +21,7 @@ namespace SceneManagement.Scene
 
         public override void OnEnter()
         {
-            Debug.Log($"{this}：开始加载场景{this.SceneName}");
+            Debug.Log($"{this}：Start loading {this.SceneName}");
             UnitySceneManager.LoadScene(this.SceneName);
             UnitySceneManager.sceneLoaded += SceneLoaded;
         }
@@ -35,12 +35,12 @@ namespace SceneManagement.Scene
 
         private void SceneLoaded(UnityScene scene, LoadSceneMode mode)
         {
-            Debug.Log($"{this}：场景加载完毕{this.SceneName}");
+            Debug.Log($"{this}：Scene loaded {this.SceneName}");
 
             UIManager = new UIManager();
             MainController.Instance.InputManager.PushLayer();
             MainController.Instance.UIManager.Push(new MainPanel());
-            MainController.Instance.UIManager.Push(new DialogPanel(new DialogSystem.ListDialogData()));
+            //MainController.Instance.UIManager.Push(new DialogPanel(new DialogSystem.ListDialogData()));
         }
     }
 }

@@ -13,8 +13,6 @@ namespace DialogSystem
         {
             dialogs = new List<SingleDialog>();
             index = -1;
-            dialogs.Add(new SingleDialog("avatar1", "speaker1", "你好世界！\n你好世界！"));
-
         }
 
         public SingleDialog GetNext()
@@ -27,7 +25,7 @@ namespace DialogSystem
 
         public bool HasNext()
         {
-            if (index >= dialogs.Count) return false;
+            if (index >= dialogs.Count - 1) return false;
             return true;
         }
 

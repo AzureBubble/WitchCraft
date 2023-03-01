@@ -13,7 +13,7 @@ namespace SceneManagement.Scene
 {
     public class StartGameScene : BaseScene
     {
-        private static string sceneName = "StartGame";
+        private static readonly string sceneName = "StartGame";
 
         public UIManager UIManager { get; private set; }
 
@@ -21,7 +21,7 @@ namespace SceneManagement.Scene
 
         public override void OnEnter()
         {
-            Debug.Log($"{this}: Start to load {this.SceneName}");
+            Debug.Log($"{this}: Start loading {this.SceneName}");
             UnitySceneManager.LoadScene(this.SceneName);
             UnitySceneManager.sceneLoaded += SceneLoaded;
         }
@@ -36,7 +36,7 @@ namespace SceneManagement.Scene
 
         private void SceneLoaded(UnityScene scene, LoadSceneMode mode)
         {
-            Debug.Log($"{this}: scene load already {this.SceneName}");
+            Debug.Log($"{this}: Scene loaded {this.SceneName}");
             
             UIManager = new UIManager();
             MainController.Instance.InputManager.PushLayer();

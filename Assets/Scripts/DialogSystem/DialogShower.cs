@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 using UIManagement.UITools;
+using MainControl;
 
 namespace DialogSystem
 {
@@ -18,12 +19,14 @@ namespace DialogSystem
 
         private bool isReady;
         private bool showing;
+        private bool isSkip;
 
         private void Awake()
         {
             tool = new UITool(gameObject);
             isReady = false;
             showing = false;
+            isSkip = false;
             data = null;
         }
 
@@ -45,8 +48,27 @@ namespace DialogSystem
             {
                 if (data.HasNext())
                 {
+                    content.text = "";
                     IEnumerator enumerator = ShowDialogCoroutine(data.GetNext());
                     StartCoroutine(enumerator);
+                }
+            }
+
+            if (data != null && Input.GetMouseButtonDown(0))
+            {
+                if (isReady == true)
+                {
+                    isSkip = true;
+                    return;
+                }
+
+                if (data.HasNext())
+                {
+                    isReady = true;
+                }
+                else
+                {
+                    MainController.Instance.UIManager.Pop();
                 }
             }
         }
@@ -54,14 +76,22 @@ namespace DialogSystem
         private IEnumerator ShowDialogCoroutine(SingleDialog dialog)
         {
             showing = true;
+            avatar.sprite = dialog.Avatar;
             speaker.text = dialog.Speaker;
             foreach(char each in dialog.Content)
             {
+                if (isSkip)
+                {
+                    content.text = dialog.Content;
+                    break;
+                }
                 content.text += each;
                 yield return new WaitForSeconds(0.2f);
             }
 
             showing = false;
+            isReady = false;
+            isSkip = false;
         }
 
         public void SetDialogData(IDialogData data)

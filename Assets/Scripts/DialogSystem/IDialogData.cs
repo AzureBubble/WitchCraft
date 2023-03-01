@@ -14,14 +14,14 @@ namespace DialogSystem
 
     public class SingleDialog
     {
-        public string Avatar;
+        public Sprite Avatar;
         public string Speaker;
         public string Content;
-        public SingleDialog(string avatar, string speaker, string content)
+        public SingleDialog(Sprite avatar, string speaker, string content)
         {
-            Avatar = new string(avatar);
-            Speaker = new string(speaker);
-            Content = new string(content);
+            Avatar = avatar;
+            Speaker = speaker;
+            Content = content;
         }
     }
 }
