@@ -315,6 +315,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1267981023928445357, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267981023928445357, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -212477365
+      objectReference: {fileID: 0}
     - target: {fileID: 1267981023928445358, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
       propertyPath: m_Size.x
       value: 8.72251
@@ -814,7 +822,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000fb3280f01bfeacfe4bda55f3
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
