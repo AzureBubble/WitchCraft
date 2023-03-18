@@ -3,7 +3,7 @@ using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
 using UnityScene = UnityEngine.SceneManagement.Scene;
 using UnityEngine;
 
-namespace SceneManager.Scene
+namespace SceneManagement.Scene
 {
     public class Test_qzj : BaseScene
     {

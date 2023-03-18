@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SceneManager.Scene;
+using SceneManagement.Scene;
 
-namespace SceneManager
+namespace SceneManagement
 {
     public class SceneManager
     {

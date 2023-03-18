@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SceneManager.Scene
+namespace SceneManagement.Scene
 {
     public abstract class BaseScene
     {

@@ -1,63 +1,96 @@
-﻿using System.Threading;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SceneManager.Scene;
 
-public class MainController : MonoBehaviour
+using SceneManagement;
+using SceneManagement.Scene;
+using UIManagement.UIManager;
+using InputManagement;
+
+
+namespace MainControl
 {
-    public static MainController Instance { get; private set; }
-
-    // 场景切换管理器
-    public SceneManager.SceneManager SceneManager { get; private set; }
-
-    public bool IsGameEnd { get; private set; }
-
-    private void Awake()
+    public class MainController : MonoBehaviour
     {
-        if (Instance == null)
+        public static MainController Instance { get; private set; }
+
+        //子系统工厂
+        public MCFactory MCFactory { get; private set; }
+
+        // 场景切换管理器
+        public SceneManager SceneManager { get; private set; }
+
+        //键盘输入管理器
+        public InputManager InputManager { get; private set; }
+
+        // UI管理器
+        public UIManager UIManager;
+
+        public bool GameOver { get; private set; }
+
+
+        void Awake()
         {
-            Instance = this;
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+
+            Initiate();
+            DontDestroyOnLoad(this.gameObject);
         }
-        else
+
+        private void Initiate()
         {
-            Destroy(this.gameObject);
+            this.MCFactory = new MCFactory();
+            this.SceneManager = new SceneManager();
+
+            GameObject inputManagerObj = MCFactory.GetSubSystem(InputManager.Path);
+            SetAsChildObject(inputManagerObj);
+            this.InputManager = inputManagerObj.GetComponent<InputManager>();
+
+            this.GameOver = false;
         }
 
-        this.SceneManager = new SceneManager.SceneManager();
-        this.IsGameEnd = true;
+        // Start is called before the first frame update
+        void Start()
+        {
+            this.SceneManager.SetScene(new StartGameScene());
 
-        DontDestroyOnLoad(this.gameObject);
-    }
+            //this.SceneManager.SetScene(new Level1Scene());
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-        this.SceneManager.SetScene(new StartGameScene());
+            this.InputManager.RegisterKeyDown(KeyCode.T, () => { Debug.Log("test."); });
+        }
 
-        //this.SceneManager.SetScene(new Level1Scene());
-    }
+        // Update is called once per frame
+        void Update()
+        {
+            this.DetectDefeat();
 
-    // Update is called once per frame
-    private void Update()
-    {
-        this.DetectDefeat();
-    }
+        }
 
-    private void DetectDefeat()
-    {
-    }
+        private void DetectDefeat()
+        {
 
-    public void OnVictory()
-    {
-    }
+        }
 
-    public void OnDefeat()
-    {
-    }
+        public void OnVictory()
+        {
 
-    public void SetAsChildObject(GameObject obj)
-    {
-        obj.transform.parent = this.transform;
+        }
+
+        public void OnDefeat()
+        {
+
+        }
+
+        public void SetAsChildObject(GameObject obj)
+        {
+            obj.transform.parent = this.transform;
+        }
     }
 }

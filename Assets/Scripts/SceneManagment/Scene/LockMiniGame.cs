@@ -1,21 +1,21 @@
-ï»¿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using LoadSceneMode = UnityEngine.SceneManagement.LoadSceneMode;
 using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
 using UnityScene = UnityEngine.SceneManagement.Scene;
+using UnityEngine;
 
-namespace SceneManager.Scene
+namespace SceneManagement.Scene
 {
-    public class Level1Scene : BaseScene
+    public class LockMiniGame : BaseScene
     {
-        private static string sceneName = "Level_01";
+        private static string sceneName = "LockMiniGame";
 
-        public Level1Scene(): base(sceneName) { }
+        public LockMiniGame() : base(sceneName)
+        {
+        }
 
         public override void OnEnter()
         {
-            Debug.Log($"{this}ï¼šå¼€å§‹åŠ è½½åœºæ™¯{this.SceneName}");
+            Debug.Log($"{this}£º¿ªÊ¼¼ÓÔØ³¡¾°{this.SceneName}");
             //this.panelManager = new PanelManager(new PanelFactory());
             UnitySceneManager.LoadScene(this.SceneName);
             UnitySceneManager.sceneLoaded += SceneLoaded;
@@ -29,12 +29,9 @@ namespace SceneManager.Scene
 
         private void SceneLoaded(UnityScene scene, LoadSceneMode mode)
         {
-            Debug.Log($"{this}ï¼šåœºæ™¯åŠ è½½å®Œæ¯•{this.SceneName}");
+            Debug.Log($"{this}£º³¡¾°¼ÓÔØÍê±Ï{this.SceneName}");
 
-         
             //this.panelManager.Push(new StartPanel());
         }
     }
 }
-
-
