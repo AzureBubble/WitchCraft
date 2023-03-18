@@ -5,18 +5,23 @@ using LoadSceneMode = UnityEngine.SceneManagement.LoadSceneMode;
 using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
 using UnityScene = UnityEngine.SceneManagement.Scene;
 
-namespace SceneManager.Scene
+using MainControl;
+using UIManagement.UIManager;
+using UIManagement.Panel;
+
+namespace SceneManagement.Scene
 {
     public class StartGameScene : BaseScene
     {
-        private static string sceneName = "StartGame";
+        private static readonly string sceneName = "StartGame";
+
+        public UIManager UIManager { get; private set; }
 
         public StartGameScene(): base(sceneName) { }
 
         public override void OnEnter()
         {
-            Debug.Log($"{this}：开始加载场景{this.SceneName}");
-            //this.panelManager = new PanelManager(new PanelFactory());
+            Debug.Log($"{this}: Start loading {this.SceneName}");
             UnitySceneManager.LoadScene(this.SceneName);
             UnitySceneManager.sceneLoaded += SceneLoaded;
         }
@@ -24,15 +29,19 @@ namespace SceneManager.Scene
         public override void OnExit()
         {
             UnitySceneManager.sceneLoaded -= SceneLoaded;
-            //this.panelManager.PopAll();
+            
+            MainController.Instance.UIManager.PopAll();
+            MainController.Instance.InputManager.PopLayer();
         }
 
         private void SceneLoaded(UnityScene scene, LoadSceneMode mode)
         {
-            Debug.Log($"{this}：场景加载完毕{this.SceneName}");
+            Debug.Log($"{this}: Scene loaded {this.SceneName}");
+            
+            UIManager = new UIManager();
+            MainController.Instance.InputManager.PushLayer();
+            MainController.Instance.UIManager.Push(new StartGamePanel());
 
-
-            //this.panelManager.Push(new StartPanel());
         }
     }
 }
