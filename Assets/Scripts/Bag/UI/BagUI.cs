@@ -7,6 +7,8 @@ namespace Bag
 {
     public class BagUI : MonoBehaviour
     {
+        // ÐÂÔötest
+        public Button test;
         public Button leftBtn;
         public Button rightBtn;
         public ItemUI itemUI;
