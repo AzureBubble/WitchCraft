@@ -2063,7 +2063,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 0.972549, g: 0.9529412, b: 0.7921569, a: 1}
-  m_Intensity: 0.62
+  m_Intensity: 0.48
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: fb3280f01bfeacfe4bda55f300000000
@@ -2252,6 +2252,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1267981022301919026, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267981022301919036, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267981022301919036, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: -260033797
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267981022301919036, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[2]
+      value: -22217189
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267981022301919036, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[3]
+      value: -212477365
+      objectReference: {fileID: 0}
     - target: {fileID: 1267981023928445346, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2335,6 +2355,10 @@ PrefabInstance:
     - target: {fileID: 1267981023928445357, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
       propertyPath: m_SortingLayerID
       value: -212477365
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267981023928445357, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1267981023928445358, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
       propertyPath: m_Size.x
