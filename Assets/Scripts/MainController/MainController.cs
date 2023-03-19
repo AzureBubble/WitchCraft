@@ -5,6 +5,7 @@ using UnityEngine;
 using SceneManagement;
 using SceneManagement.Scene;
 using UIManagement.UIManager;
+using UIManagement.BackpackSystem;
 using InputManagement;
 
 
@@ -25,6 +26,9 @@ namespace MainControl
 
         // UI管理器
         public UIManager UIManager;
+
+        // 背包UI
+        public IBackpackUI BackpackUI;
 
         public bool GameOver { get; private set; }
 
