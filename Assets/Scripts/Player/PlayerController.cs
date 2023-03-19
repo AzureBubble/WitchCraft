@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D rb;           //角色刚体
     public float speed = 3;              //角色移动速度
-    public BoxCollider2D collcap;    //角色碰撞体
-    public Animator anim;
-    float faceturn;
+    private BoxCollider2D collcap;    //角色碰撞体
+    private Animator anim;
+    private Rigidbody2D rb;           //角色刚体
+    private float faceturn;
 
-    void Start()
+    private void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
+        collcap = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
     }
 
-    void Update()
+    private void Update()
     {
         Movement(); //角色移动函数
         Animationswitch();  //动画切换函数
     }
 
-    void Movement() //角色移动函数
+    private void Movement() //角色移动函数
     {
         float horizontalmove = Input.GetAxis("Horizontal");   //水平移动
         float verticalmove = Input.GetAxisRaw("Vertical");    //垂直移动
@@ -39,7 +41,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Animationswitch()   //动画切换函数
+    private void Animationswitch()   //动画切换函数
     {
         if (rb.velocity.x < 0.1f && rb.velocity.x > -0.1f && rb.velocity.y < 0.1f && rb.velocity.y > -0.1f)
         {
@@ -48,14 +50,14 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("rightstand", true);
             anim.SetBool("leftstand", true);
         }
-        else if(rb.velocity.y > 0.1f || rb.velocity.y < -0.1f)
+        else if (rb.velocity.y > 0.1f || rb.velocity.y < -0.1f)
         {
-            if(faceturn==1) //向右走
+            if (faceturn == 1) //向右走
             {
                 anim.SetBool("rightwalk", true);
                 anim.SetBool("leftwalk", false);
             }
-            else if(faceturn==0)    //向左走
+            else if (faceturn == 0)    //向左走
             {
                 anim.SetBool("rightwalk", false);
                 anim.SetBool("leftwalk", true);
@@ -63,7 +65,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("rightstand", false);
             anim.SetBool("leftstand", false);
         }
-        else if (rb.velocity.x>0.1f)
+        else if (rb.velocity.x > 0.1f)
         {
             anim.SetBool("rightwalk", true);
             anim.SetBool("leftwalk", false);
