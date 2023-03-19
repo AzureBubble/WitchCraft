@@ -555,7 +555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183253642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.019767761, y: 0.0061399937, z: -10}
+  m_LocalPosition: {x: 0.01771307, y: 0.006160021, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -973,27 +973,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1267981022301919036, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
       propertyPath: m_Color.b
-      value: 0.6273585
+      value: 0.3436276
       objectReference: {fileID: 0}
     - target: {fileID: 1267981022301919036, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
       propertyPath: m_Color.g
-      value: 0.93867433
+      value: 0.5752854
       objectReference: {fileID: 0}
     - target: {fileID: 1267981022301919036, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.735849
       objectReference: {fileID: 0}
     - target: {fileID: 1267981022301919036, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
       propertyPath: m_Intensity
-      value: 0.96
+      value: 1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267981022301919036, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 0.582
       objectReference: {fileID: 0}
     - target: {fileID: 1267981022301919036, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
       propertyPath: m_PointLightInnerRadius
-      value: 1.61
+      value: 1.96
       objectReference: {fileID: 0}
     - target: {fileID: 1267981022301919036, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 7.01
+      value: 8.25
       objectReference: {fileID: 0}
     - target: {fileID: 1267981022301919036, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
@@ -1127,16 +1131,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1267981023928445346, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
   m_PrefabInstance: {fileID: 2073152562}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &2073152564 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 1267981023928445358, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
-  m_PrefabInstance: {fileID: 2073152562}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &2073152565 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 1267981023928445353, guid: d25015cd7a028ed49b7715c3bc436bc1, type: 3}
-  m_PrefabInstance: {fileID: 2073152562}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2073152566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,10 +1143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c043df8bc49f4046b192286a2eef0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 2073152565}
   speed: 3
-  collcap: {fileID: 2073152564}
-  anim: {fileID: 2073152567}
 --- !u!95 &2073152567
 Animator:
   serializedVersion: 5
