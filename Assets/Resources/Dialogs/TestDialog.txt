@@ -1,0 +1,15 @@
+null
+Player1
+Hello World!
+
+null
+Player2
+content1, hello world, type for nothing
+
+avatar1
+TestSpeaker1
+content2, hello world
+
+avatar2
+TestSpeaker2
+content3, hello world

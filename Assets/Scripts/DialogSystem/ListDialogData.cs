@@ -9,10 +9,11 @@ namespace DialogSystem
         private List<SingleDialog> dialogs;
         private int index;
 
-        public ListDialogData()
+        public ListDialogData(List<List<string>> data = null)
         {
             dialogs = new List<SingleDialog>();
             index = -1;
+            SetData(data);
         }
 
         public SingleDialog GetNext()
@@ -37,6 +38,24 @@ namespace DialogSystem
         public void ResetIndex()
         {
             index = -1;
+        }
+
+        public void SetData(List<List<string>> data)
+        {
+            if (data != null)
+            {
+                dialogs.Clear();
+                foreach (List<string> each in data)
+                {
+                    string avatar_path = each[0];
+
+                    Sprite sprite = Resources.Load<Sprite>(avatar_path);
+                    string speaker = each[1];
+                    string content = each[2];
+                    
+                    dialogs.Add(new SingleDialog(sprite, speaker, content));
+                }
+            }
         }
     }
 }
