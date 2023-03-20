@@ -585,7 +585,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288520816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.017719746, y: 0.006160021, z: -10}
+  m_LocalPosition: {x: 0.018453836, y: 0.0061500072, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3032,6 +3032,7 @@ GameObject:
   - component: {fileID: 2082942534}
   - component: {fileID: 2082942536}
   - component: {fileID: 2082942537}
+  - component: {fileID: 2082942538}
   m_Layer: 0
   m_Name: InteralampBox
   m_TagString: Untagged
@@ -3147,6 +3148,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Button_dialogue: {fileID: 779587370}
   TalkUI: {fileID: 1106871716}
+--- !u!114 &2082942538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082942533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce1027774869ea44a829240747601f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Height: 1
+  dialogKeyCode: 114
+  textPath: Dialogs/TestDialog
 --- !u!1 &2084905024
 GameObject:
   m_ObjectHideFlags: 0

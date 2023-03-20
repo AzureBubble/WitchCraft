@@ -14,13 +14,20 @@ public class DialogHolder : MonoBehaviour
     private float Height = 1f;
     [SerializeField]
     private KeyCode dialogKeyCode = KeyCode.R;
+    [SerializeField]
+    private string textPath = "";
 
     private GameObject dialogHintPrefab;
     private GameObject dialogHint;
 
+    private DialogLoader dialogLoader;
+    private IDialogData dialogData;
+
     private void Awake()
     {
         dialogHintPrefab = Resources.Load<GameObject>(iconPath);
+        dialogLoader = new DialogLoader();
+        dialogData = dialogLoader.LoadDialogData(textPath);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -50,6 +57,7 @@ public class DialogHolder : MonoBehaviour
 
     private void OpenDialogPanel()
     {
-        //MainController.Instance.UIManager.Push(new DialogPanel());
+        dialogData.ResetIndex();
+        MainController.Instance.UIManager.Push(new DialogPanel(dialogData));
     }
 }
