@@ -50,6 +50,6 @@ public class DialogHolder : MonoBehaviour
 
     private void OpenDialogPanel()
     {
-        MainController.Instance.UIManager.Push(new DialogPanel());
+        //MainController.Instance.UIManager.Push(new DialogPanel());
     }
 }
