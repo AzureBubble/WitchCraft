@@ -8,7 +8,7 @@ using MainControl;
 
 namespace UIManagement.UIManager
 {
-    public class UIManager
+    public class UIManager: IUIManager
     {
         public Stack<BasePanel> PanelStack { get; private set; }
 
@@ -56,6 +56,17 @@ namespace UIManagement.UIManager
             }
         }
 
+        public BasePanel Peek()
+        {
+            if (PanelStack.Count > 0)
+            {
+                return PanelStack.Peek();
+            } else
+            {
+                return null;
+            }
+        }
+
         /// <summary>
         /// UI界面清空
         /// </summary>
@@ -69,5 +80,14 @@ namespace UIManagement.UIManager
             }
         }
     }
+
+    public interface IUIManager
+    {
+        public void Push(BasePanel panel);
+        public void Pop();
+        public BasePanel Peek();
+        public void PopAll();
+    }
+
 }
 

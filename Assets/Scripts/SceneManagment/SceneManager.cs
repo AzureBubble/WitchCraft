@@ -5,39 +5,52 @@ using SceneManagement.Scene;
 
 namespace SceneManagement
 {
-    public class SceneManager
+    public class SceneManager: MonoBehaviour, ISceneManager
     {
-        public BaseScene CurrentScene { get; private set; }
+        public static readonly string Path = "MainControl/SceneManager";
 
-        public SceneManager()
+        private BaseScene currentScene;
+
+        void Awake()
         {
-            CurrentScene = null;
+            currentScene = null;
         }
 
         public void SetScene(BaseScene scene)
         {
-            if (this.CurrentScene != null && this.CurrentScene.SceneName != scene.SceneName)
+            if (this.currentScene != null && this.currentScene.SceneName != scene.SceneName)
             {
-                CurrentScene.OnExit();
+                currentScene.OnExit();
             }
-            this.CurrentScene = scene;
-            if (this.CurrentScene != null)
+            this.currentScene = scene;
+            if (this.currentScene != null)
             {
-                CurrentScene.OnEnter();
+                currentScene.OnEnter();
             }
+        }
+
+        public BaseScene CurrentScene()
+        {
+            return currentScene;
         }
 
         public void ResetScene()
         {
-            if (this.CurrentScene != null)
+            if (this.currentScene != null)
             {
-                this.CurrentScene.OnExit();
-                this.CurrentScene.OnEnter();
+                this.currentScene.OnExit();
+                this.currentScene.OnEnter();
             }
         }
 
     }
 
+    public interface ISceneManager
+    {
+        public void SetScene(BaseScene scene);
+        public BaseScene CurrentScene();
+        public void ResetScene();
+    }
 }
 
 

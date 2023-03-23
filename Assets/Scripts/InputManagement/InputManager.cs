@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace InputManagement
 {
-    public class InputManager : MonoBehaviour
+    public class InputManager : MonoBehaviour, IInputManager
     {
-        public static string Path = "MainControl/InputManager";
+        public static readonly string Path = "MainControl/InputManager";
 
         public Stack<InputKeyLayer> LayerStack { get; private set; }
 
@@ -178,5 +178,18 @@ namespace InputManagement
             WithdrawOnTopLayer(code, callback, PressType.Up);
         }
     }
+
+    public interface IInputManager
+    {
+        public void PushLayer();
+        public void PopLayer();
+        public void RegisterKeyDown(KeyCode code, Action callback);
+        public void RegisterKeyStay(KeyCode code, Action callback);
+        public void RegisterKeyUp(KeyCode code, Action callback);
+        public void WithdrawKeyDown(KeyCode code, Action callback);
+        public void WithdrawKeyStay(KeyCode code, Action callback);
+        public void WithdrawKeyUp(KeyCode code, Action callback);
+    }
+
 }
 
