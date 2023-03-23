@@ -19,13 +19,13 @@ namespace MainControl
         public MCFactory MCFactory { get; private set; }
 
         // 场景切换管理器
-        public SceneManager SceneManager { get; private set; }
+        public ISceneManager SceneManager { get; private set; }
 
         //键盘输入管理器
-        public InputManager InputManager { get; private set; }
+        public IInputManager InputManager { get; private set; }
 
         // UI管理器
-        public UIManager UIManager;
+        public IUIManager UIManager;
 
         // 背包UI
         public IBackpackUI BackpackUI;
@@ -51,9 +51,13 @@ namespace MainControl
         private void Initiate()
         {
             this.MCFactory = new MCFactory();
-            this.SceneManager = new SceneManager();
+            //this.SceneManager = new SceneManager();
 
-            GameObject inputManagerObj = MCFactory.GetSubSystem(InputManager.Path);
+            GameObject sceneManagerObj = MCFactory.GetSubSystem(SceneManagement.SceneManager.Path);
+            SetAsChildObject(sceneManagerObj);
+            SceneManager = sceneManagerObj.GetComponent<SceneManager>();
+
+            GameObject inputManagerObj = MCFactory.GetSubSystem(InputManagement.InputManager.Path);
             SetAsChildObject(inputManagerObj);
             this.InputManager = inputManagerObj.GetComponent<InputManager>();
 
