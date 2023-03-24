@@ -1,3 +1,4 @@
+using MainControl;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,7 +30,7 @@ namespace Bag
         public void ItemClick()
         {
             // 添加到背包中并隐藏道具
-            BagManger.Instance.AddItem(ItemName);
+            MainController.Instance.BagManger.AddItem(ItemName);
             gameObject.SetActive(false);
         }
 
