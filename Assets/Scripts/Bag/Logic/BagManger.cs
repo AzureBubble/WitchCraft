@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UIManagement.BackpackSystem;
 
 namespace Bag
 {
-    public class BagManger : Singleton<BagManger>
+    public class BagManger : MonoBehaviour//Singleton<BagManger>
     {
+        public static readonly string Path = "MainControl/BagManger";
+
         // 保存场景中的道具状态
         private Dictionary<ItemName, bool> itemAvaiableDict = new Dictionary<ItemName, bool>();
 
@@ -22,6 +25,8 @@ namespace Bag
         [SerializeField]
         private GameObject copperLight;
 
+        private IBackpackUI backPackUI;
+
         private void Update()
         {
             UseProps();
@@ -35,8 +40,9 @@ namespace Bag
             {
                 // 背包中不存在该数据则添加到背包里
                 itemList.Add(itemName);
-                // 同时在背包 UI 中显示出来
-                EventHandler.CallUpdateUIEvent(itemData.GetItemDetails(itemName), itemList.Count - 1);
+                //TODO: 同时在背包 UI 中显示出来
+                //EventHandler.CallUpdateUIEvent(itemData.GetItemDetails(itemName), itemList.Count - 1);
+                //backPackUI.AddItemUI(itemName);
             }
         }
 

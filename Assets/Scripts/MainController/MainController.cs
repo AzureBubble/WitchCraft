@@ -7,7 +7,7 @@ using SceneManagement.Scene;
 using UIManagement.UIManager;
 using UIManagement.BackpackSystem;
 using InputManagement;
-
+using Bag;
 
 namespace MainControl
 {
@@ -24,6 +24,8 @@ namespace MainControl
         //键盘输入管理器
         public IInputManager InputManager { get; private set; }
 
+        public BagManger BagManger { get; private set; }
+
         // UI管理器
         public IUIManager UIManager;
 
@@ -32,8 +34,7 @@ namespace MainControl
 
         public bool GameOver { get; private set; }
 
-
-        void Awake()
+        private void Awake()
         {
             if (Instance == null)
             {
@@ -61,11 +62,15 @@ namespace MainControl
             SetAsChildObject(inputManagerObj);
             this.InputManager = inputManagerObj.GetComponent<InputManager>();
 
+            GameObject BagManagerObj = MCFactory.GetSubSystem(BagManger.Path);
+            SetAsChildObject(BagManagerObj);
+            this.BagManger = BagManagerObj.GetComponent<BagManger>();
+
             this.GameOver = false;
         }
 
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             this.SceneManager.SetScene(new StartGameScene());
 
@@ -75,25 +80,21 @@ namespace MainControl
         }
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
             this.DetectDefeat();
-
         }
 
         private void DetectDefeat()
         {
-
         }
 
         public void OnVictory()
         {
-
         }
 
         public void OnDefeat()
         {
-
         }
 
         public void SetAsChildObject(GameObject obj)
