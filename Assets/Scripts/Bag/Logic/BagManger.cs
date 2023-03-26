@@ -4,7 +4,7 @@ using UIManagement.BackpackSystem;
 
 namespace Bag
 {
-    public class BagManger : MonoBehaviour//Singleton<BagManger>
+    public class BagManger : MonoBehaviour
     {
         public static readonly string Path = "MainControl/BagManger";
 
@@ -29,7 +29,7 @@ namespace Bag
 
         private void Update()
         {
-            UseProps();
+            //UseProps();
         }
 
         #region 添加道具到背包中
@@ -42,7 +42,7 @@ namespace Bag
                 itemList.Add(itemName);
                 //TODO: 同时在背包 UI 中显示出来
                 //EventHandler.CallUpdateUIEvent(itemData.GetItemDetails(itemName), itemList.Count - 1);
-                //backPackUI.AddItemUI(itemName);
+                //backPackUI.AddItemUI(itemName.ToString());
             }
         }
 
@@ -50,13 +50,8 @@ namespace Bag
 
         #region 使用道具
 
-        private void UseProps()
+        public void UseProps(ItemName itemName)
         {
-            // 使用道具栏 1 的道具
-            if (Input.GetKeyDown(KeyCode.Alpha1) && itemList.Contains(ItemName.Light))
-            {
-                copperLight.SetActive(!copperLight.activeSelf);
-            }
         }
 
         #endregion 使用道具
