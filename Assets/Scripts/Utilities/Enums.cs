@@ -1,13 +1,13 @@
 /// <summary>
-/// 道具名字
+/// 锟斤拷锟斤拷锟斤拷锟斤拷
 /// </summary>
 public enum ItemName
 {
-    None, Light
+    None, Item, Light
 }
 
 /// <summary>
-/// 解锁小游戏的方块类型
+/// 锟斤拷锟斤拷小锟斤拷戏锟侥凤拷锟斤拷锟斤拷锟斤拷
 /// </summary>
 public enum MiniGamePlankType
 {

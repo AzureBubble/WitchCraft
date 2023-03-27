@@ -5,7 +5,6 @@ using UnityEngine;
 using SceneManagement;
 using SceneManagement.Scene;
 using UIManagement.UIManager;
-using UIManagement.BackpackSystem;
 using InputManagement;
 using Bag;
 
@@ -24,13 +23,11 @@ namespace MainControl
         //键盘输入管理器
         public IInputManager InputManager { get; private set; }
 
+        //背包管理器
         public BagManger BagManger { get; private set; }
 
         // UI管理器
         public IUIManager UIManager;
-
-        // 背包UI
-        public IBackpackUI BackpackUI;
 
         public bool GameOver { get; private set; }
 

@@ -16,12 +16,13 @@ namespace UIManagement.BackpackSystem
 
         [SerializeField]
         private KeyCode openKeyCode = KeyCode.B;
-
         [SerializeField]
         private bool isAppear;
-
         [SerializeField]
         private float fadeTime = 1;
+        [SerializeField]
+        [Tooltip("是否和后端背包连接")]
+        private bool isLinked = false;
 
         private UITool tool;
 
@@ -33,7 +34,6 @@ namespace UIManagement.BackpackSystem
             tool = new UITool(gameObject);
             tool.GetOrAddComponent<CanvasGroup>().interactable = false;
             tool.GetOrAddComponent<CanvasGroup>().DOFade(0, 0);
-            MainController.Instance.BackpackUI = this;
         }
 
         // Start is called before the first frame update
@@ -41,12 +41,28 @@ namespace UIManagement.BackpackSystem
         {
             backPackContent = transform.Find("Viewport/Content").gameObject;
             KeyBoardBind();
+
+            IEnumerator enumerator = ConnectBagManager();
+            StartCoroutine(enumerator);
         }
 
-        // Update is called once per frame
-        void Update()
+        private IEnumerator ConnectBagManager()
         {
-            
+            while(!isLinked)
+            {
+                try
+                {
+                    MainController.Instance.BagManger.SetBackpackUI(this, () => {
+                        isLinked = true;
+                    });
+                }
+                catch(Exception e)
+                {
+                    isLinked = false;
+                    Debug.Log($"{this}: BagManager.SetBackpackUI Exception - {e}");
+                }
+                yield return null;
+            }
         }
 
         private void KeyBoardBind()
@@ -57,11 +73,7 @@ namespace UIManagement.BackpackSystem
             Debug.Log($"{this}: bind '=' KeyCode to add an ItemUI for testing.");
             MainController.Instance.InputManager.RegisterKeyDown(KeyCode.Equals, () =>
             {
-                MainController.Instance.BackpackUI.AddItemUI("ItemUI", () =>
-                {
-                    Debug.Log("ItemUI clicked.");
-                    MainController.Instance.BackpackUI.RemoveItemUI("ItemUI");
-                });
+                MainController.Instance.BagManger.AddItem(ItemName.Item);
             });
         }
 
@@ -98,9 +110,10 @@ namespace UIManagement.BackpackSystem
             tool.GetOrAddComponent<CanvasGroup>().DOFade(0, 0.5f);
         }
 
-        public void AddItemUI(string name, Action action)
+        public void AddItemUI(ItemName name)
         {
-            GameObject prefab = Resources.Load<GameObject>(uiPath + name);
+            string uiName = name.ToString() + "UI";
+            GameObject prefab = Resources.Load<GameObject>(uiPath + uiName);
             if (prefab != null) 
             {
                 GameObject item = GameObject.Instantiate(prefab, this.backPackContent.transform);
@@ -108,15 +121,16 @@ namespace UIManagement.BackpackSystem
                 Button btn = item.GetComponentInChildren<Button>();
                 btn.onClick.AddListener(()=>
                 {
-                    action();
+                    MainController.Instance.BagManger.UseProps(name);
                 });
                 Debug.Log($"{this}: backpack add an item - {item.name}");
             }
         }
 
-        public void RemoveItemUI(string name)
+        public void RemoveItemUI(ItemName name)
         {
-            GameObject item = this.backPackContent.transform.Find(name).gameObject;
+            string uiName = name.ToString() + "UI";
+            GameObject item = this.backPackContent.transform.Find(uiName).gameObject;
             if (item != null)
             {
                 Destroy(item);
@@ -133,12 +147,12 @@ namespace UIManagement.BackpackSystem
         /// </summary>
         /// <param name="name">物品名</param>
         /// <param name="action">回调方法</param>
-        void AddItemUI(string name, Action action);
+        void AddItemUI(ItemName name);
         /// <summary>
         /// 给背包删除物品
         /// </summary>
         /// <param name="name">物品名</param>
-        void RemoveItemUI(string name);
+        void RemoveItemUI(ItemName name);
     }
 }
 
