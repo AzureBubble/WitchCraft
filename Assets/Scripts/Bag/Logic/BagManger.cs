@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UIManagement.BackpackSystem;
@@ -42,7 +43,7 @@ namespace Bag
                 itemList.Add(itemName);
                 //TODO: 同时在背包 UI 中显示出来
                 //EventHandler.CallUpdateUIEvent(itemData.GetItemDetails(itemName), itemList.Count - 1);
-                //backPackUI.AddItemUI(itemName.ToString());
+                backPackUI.AddItemUI(itemName);
             }
         }
 
@@ -52,6 +53,18 @@ namespace Bag
 
         public void UseProps(ItemName itemName)
         {
+            switch(itemName)
+            {
+                case ItemName.Item:
+                    Debug.Log($"{this}: invoke item {itemName}.");
+                    itemList.Remove(itemName);
+                    backPackUI.RemoveItemUI(itemName);
+                    break;
+                case ItemName.Light:
+                    break;
+                default:
+                    break;
+            }
         }
 
         #endregion 使用道具
@@ -134,5 +147,11 @@ namespace Bag
         }
 
         #endregion 拾取道具的时候，修改道具的状态位不可见
+
+        public void SetBackpackUI(IBackpackUI backpack, Action callback)
+        {
+            this.backPackUI = backpack;
+            callback.Invoke();
+        }
     }
 }
