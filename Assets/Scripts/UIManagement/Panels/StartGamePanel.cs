@@ -18,7 +18,7 @@ namespace UIManagement.Panel
         {
             UITool.GetOrAddComponentInChildren<Button>("StartBtn").onClick.AddListener(() =>
             {
-                MainController.Instance.SceneManager.SetScene(new Level1Scene());
+                MainController.Instance.SceneManager.DynamicSetScene(new Level1Scene());
             });
 
             UITool.GetOrAddComponentInChildren<Button>("LoadBtn").onClick.AddListener(() =>

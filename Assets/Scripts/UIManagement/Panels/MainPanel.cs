@@ -19,7 +19,7 @@ namespace UIManagement.Panel
 
             UITool.GetOrAddComponentInChildren<Button>("ExitBtn").onClick.AddListener(() =>
             {
-                MainController.Instance.SceneManager.SetScene(new StartGameScene());
+                MainController.Instance.SceneManager.DynamicSetScene(new StartGameScene());
             });
         }
     }

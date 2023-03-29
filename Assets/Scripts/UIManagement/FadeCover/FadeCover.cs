@@ -36,19 +36,21 @@ public class FadeCover : MonoBehaviour
         backGround.color = color;
     }
 
-    public void FadeIn()
+    public void FadeIn(Action callback)
     {
         IEnumerator enumerator = FadeCoroutine(Color.clear, () => {
             IsDown = true;
+            callback?.Invoke();
             Destroy(gameObject);
         });
         StartCoroutine(enumerator);
     }
 
-    public void FadeOut()
+    public void FadeOut(Action callback)
     {
         IEnumerator enumerator = FadeCoroutine(Color.black, () => {
             IsDown = true;
+            callback?.Invoke();
         });
         StartCoroutine(enumerator);
     }
@@ -57,18 +59,18 @@ public class FadeCover : MonoBehaviour
     {
         while (backGround.color.a != targetColor.a)
         {
+            //Debug.Log($"{this}: fade_speed = {fadeSpeed * Time.deltaTime}");
             backGround.color = Color.Lerp(backGround.color, targetColor, fadeSpeed * Time.deltaTime);
-            // Debug.Log($"{this}: {backGround.color}");
+            //Debug.Log($"{this}: {backGround.color}, {targetColor}");
+            //Debug.Log($"{this}: difference = {backGround.color.a - targetColor.a}");
             if (Mathf.Abs(backGround.color.a - targetColor.a) < 0.05)
             {
                 backGround.color = targetColor;
             }
             yield return null;
         }
-        if (action != null)
-        {
-            action.Invoke();
-        }
+        //Debug.Log($"{this}: {backGround.color}, {targetColor}");
+        action?.Invoke();
     }
 
 }

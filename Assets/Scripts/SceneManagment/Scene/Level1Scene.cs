@@ -8,9 +8,11 @@ using UnityScene = UnityEngine.SceneManagement.Scene;
 using MainControl;
 using UIManagement.UIManager;
 using UIManagement.Panel;
+using SceneManagement.SceneAttribute;
 
 namespace SceneManagement.Scene
 {
+    [FadeIn, FadeOut]
     public class Level1Scene : BaseScene
     {
         private static string sceneName = "Level_1";

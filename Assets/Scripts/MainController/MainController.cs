@@ -69,7 +69,7 @@ namespace MainControl
         // Start is called before the first frame update
         private void Start()
         {
-            this.SceneManager.SetScene(new StartGameScene());
+            this.SceneManager.DynamicSetScene(new StartGameScene());
 
             //this.SceneManager.SetScene(new Level1Scene());
 

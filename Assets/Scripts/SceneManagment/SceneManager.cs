@@ -1,7 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SceneManagement.Scene;
+using LoadSceneMode = UnityEngine.SceneManagement.LoadSceneMode;
+using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
+using UnityScene = UnityEngine.SceneManagement.Scene;
 
 namespace SceneManagement
 {
@@ -14,6 +18,11 @@ namespace SceneManagement
         void Awake()
         {
             currentScene = null;
+        }
+
+        public BaseScene CurrentScene()
+        {
+            return currentScene;
         }
 
         public void SetScene(BaseScene scene)
@@ -29,9 +38,51 @@ namespace SceneManagement
             }
         }
 
-        public BaseScene CurrentScene()
+        private IEnumerator SetSceneCoroutine(BaseScene scene)
         {
-            return currentScene;
+            if (currentScene != null && currentScene.SceneName != scene.SceneName)
+            {
+                IEnumerator enumerator = OnExitSceneLoaded();
+                Coroutine exitCoroutine = StartCoroutine(enumerator);
+                yield return exitCoroutine;
+            }
+            SetScene(scene);
+            UnitySceneManager.sceneLoaded += SceneLoaded;
+        }
+
+        private IEnumerator OnEnterSceneLoaded()
+        {
+            if (currentScene != null &&
+                currentScene.GetEnterState() != DynamicSceneState.None)
+            {
+                currentScene.OnEnterDynamic();
+                while (currentScene.GetEnterState() != DynamicSceneState.End)
+                    yield return null;
+            }
+        }
+
+        private IEnumerator OnExitSceneLoaded()
+        {
+            if (currentScene != null &&
+                currentScene.GetExitState() != DynamicSceneState.None)
+            {
+                currentScene.OnExitDynamic();
+                while (currentScene.GetExitState() != DynamicSceneState.End)
+                    yield return null;
+            }
+        }
+
+        private void SceneLoaded(UnityScene scene, LoadSceneMode mode)
+        {
+            IEnumerator enumerator = OnEnterSceneLoaded();
+            StartCoroutine(enumerator);
+            UnitySceneManager.sceneLoaded -= SceneLoaded;
+        }
+
+        public void DynamicSetScene(BaseScene scene)
+        {
+            IEnumerator enumerator = SetSceneCoroutine(scene);
+            StartCoroutine(enumerator);
         }
 
         public void ResetScene()
@@ -43,13 +94,37 @@ namespace SceneManagement
             }
         }
 
+        private IEnumerator ResetSceneCoroutine()
+        {
+            if (currentScene != null)
+            {
+                IEnumerator enumerator = OnExitSceneLoaded();
+                Coroutine exitCoroutine = StartCoroutine(enumerator);
+                yield return exitCoroutine;
+            }
+
+            this.ResetScene();
+            UnitySceneManager.sceneLoaded += SceneLoaded;
+        }
+
+        public void DynamicResetScene()
+        {
+            if (currentScene != null)
+            {
+                IEnumerator enumerator = ResetSceneCoroutine();
+                StartCoroutine(enumerator);
+            }
+        }
+
     }
 
     public interface ISceneManager
     {
-        public void SetScene(BaseScene scene);
         public BaseScene CurrentScene();
+        public void SetScene(BaseScene scene);
+        public void DynamicSetScene(BaseScene scene);
         public void ResetScene();
+        public void DynamicResetScene();
     }
 }
 
