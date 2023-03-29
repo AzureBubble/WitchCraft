@@ -8,9 +8,11 @@ using UnityScene = UnityEngine.SceneManagement.Scene;
 using MainControl;
 using UIManagement.UIManager;
 using UIManagement.Panel;
+using SceneManagement.SceneAttribute;
 
 namespace SceneManagement.Scene
 {
+    [FadeIn, FadeOut]
     public class StartGameScene : BaseScene
     {
         private static readonly string sceneName = "StartGame";
@@ -37,13 +39,14 @@ namespace SceneManagement.Scene
         private void SceneLoaded(UnityScene scene, LoadSceneMode mode)
         {
             Debug.Log($"{this}: Scene loaded {this.SceneName}");
-            
+
             UIManager = new UIManager();
             MainController.Instance.InputManager.PushLayer();
             MainController.Instance.UIManager.Push(new StartGamePanel());
 
         }
     }
+
 }
 
 
