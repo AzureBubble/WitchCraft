@@ -13,13 +13,13 @@ using SceneManagement.SceneAttribute;
 namespace SceneManagement.Scene
 {
     [FadeIn, FadeOut]
-    public class Level1Scene : BaseScene
+    public class Level2Scene : BaseScene
     {
-        private static string sceneName = "Level_1";
+        private static string sceneName = "Level_2";
 
         public UIManager UIManager { get; private set; }
 
-        public Level1Scene(): base(sceneName) { }
+        public Level2Scene() : base(sceneName) { }
 
         public override void OnEnter()
         {
@@ -35,6 +35,7 @@ namespace SceneManagement.Scene
             MainController.Instance.InputManager.PopLayer();
             MainController.Instance.UIManager.PopAll();
             MainController.Instance.UIManager = null;
+
         }
 
         private void SceneLoaded(UnityScene scene, LoadSceneMode mode)
@@ -48,5 +49,6 @@ namespace SceneManagement.Scene
         }
     }
 }
+
 
 

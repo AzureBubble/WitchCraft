@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UIManagement.BackpackSystem;
 
+using MainControl;
+using SceneManagement.Scene;
+
 namespace Bag
 {
     public class BagManger : MonoBehaviour
@@ -28,6 +31,8 @@ namespace Bag
 
         private IBackpackUI backPackUI;
 
+        private Dictionary<string, GameObject> connectedItems = new Dictionary<string, GameObject>();
+
         private void Update()
         {
             //UseProps();
@@ -47,20 +52,33 @@ namespace Bag
             }
         }
 
+        public void RemoveItem(ItemName itemName)
+        {
+            if (itemList.Contains(itemName))
+            {
+                itemList.Remove(itemName);
+                backPackUI.RemoveItemUI(itemName);
+            }
+        }
+
         #endregion 添加道具到背包中
 
         #region 使用道具
 
         public void UseProps(ItemName itemName)
         {
-            switch(itemName)
+            Debug.Log($"{this}: {itemName} clicked");
+            switch (itemName)
             {
                 case ItemName.Item:
-                    Debug.Log($"{this}: invoke item {itemName}.");
                     itemList.Remove(itemName);
                     backPackUI.RemoveItemUI(itemName);
                     break;
                 case ItemName.Light:
+                    break;
+                case ItemName.Sword:
+                    connectedItems["Alter-Door"]?.GetComponent<AlterDoor>().CheckItem(itemName);
+                    RemoveItem(itemName);
                     break;
                 default:
                     break;
@@ -152,6 +170,16 @@ namespace Bag
         {
             this.backPackUI = backpack;
             callback.Invoke();
+        }
+
+        public void ItemConnect(string name, GameObject obj)
+        {
+            connectedItems.Add(name, obj);
+        }
+
+        public void CleanConncectedItems()
+        {
+            connectedItems.Clear();
         }
     }
 }

@@ -1,16 +1,25 @@
+using System.Collections;
 using UnityEngine;
+
+using MainControl;
 
 public class Interactive : MonoBehaviour
 {
-    [Header("¿É½»»¥ÎïÆ·ĞÅÏ¢")]
+    [Header("ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½Ï¢")]
     [SerializeField]
-    private ItemName requireItem; // ÎïÆ·Ãû³Æ
+    private ItemName requireItem; // ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
 
-    private bool isDone; // »¥¶¯ÊÇ·ñ½áÊø
+    private bool isDone; // ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
 
     public bool IsDone { get => isDone; set => isDone = value; }
 
-    #region Êó±êÉäÏß¼ì²âÎïÌå
+    private void Start()
+    {
+        IEnumerator enumerator = ConnectBagManager();
+        StartCoroutine(enumerator);
+    }
+
+    #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     public void CheckItem(ItemName itemName)
     {
@@ -19,24 +28,37 @@ public class Interactive : MonoBehaviour
             IsDone = true;
             OnClickedAction();
         }
+        else
+        {
+            EmptyClicked();
+        }
     }
 
-    #endregion Êó±êÉäÏß¼ì²âÎïÌå
+    #endregion ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-    #region Ä¬ÈÏÊÇÕıÈ·µÄÎïÆ·µÄÇé¿öÖ´ĞĞ
+    #region Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½
 
     protected virtual void OnClickedAction()
     {
     }
 
-    #endregion Ä¬ÈÏÊÇÕıÈ·µÄÎïÆ·µÄÇé¿öÖ´ĞĞ
+    #endregion Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½
 
-    #region ¿ÕÎïÆ·Ê±ºòµÄµã»÷ÊÂ¼ş
+    #region ï¿½ï¿½ï¿½ï¿½Æ·Ê±ï¿½ï¿½Äµï¿½ï¿½ï¿½Â¼ï¿½
 
     public virtual void EmptyClicked()
     {
-        Debug.Log("¿Õµã");
+        Debug.Log("ï¿½Õµï¿½");
     }
 
-    #endregion ¿ÕÎïÆ·Ê±ºòµÄµã»÷ÊÂ¼ş
+    #endregion ï¿½ï¿½ï¿½ï¿½Æ·Ê±ï¿½ï¿½Äµï¿½ï¿½ï¿½Â¼ï¿½
+
+    private IEnumerator ConnectBagManager()
+    {
+        while(MainController.Instance.BagManger == null)
+        {
+            yield return null;
+        }
+        MainController.Instance.BagManger.ItemConnect(name, gameObject);
+    }
 }

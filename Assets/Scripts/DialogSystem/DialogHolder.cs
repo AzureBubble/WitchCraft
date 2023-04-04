@@ -13,7 +13,7 @@ public class DialogHolder : MonoBehaviour
     [SerializeField]
     private float Height = 1f;
     [SerializeField]
-    private KeyCode dialogKeyCode = KeyCode.R;
+    private KeyCode dialogKeyCode = KeyCode.F;
     [SerializeField]
     private string textPath = "";
 
@@ -46,7 +46,12 @@ public class DialogHolder : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerController>() != null)
         {
             Debug.Log($"{this}: player collision exit");
-            
+
+            if (MainController.Instance.UIManager.Peek().Type.Name == "DialogPanel")
+            {
+                MainController.Instance.UIManager.Pop();
+            }
+
             if (dialogHint != null)
             {
                 Destroy(dialogHint);
