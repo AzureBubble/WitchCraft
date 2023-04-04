@@ -1,10 +1,16 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UIManagement.BackpackSystem;
+using LoadSceneMode = UnityEngine.SceneManagement.LoadSceneMode;
+using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
+using UnityScene = UnityEngine.SceneManagement.Scene;
 
 using MainControl;
 using SceneManagement.Scene;
+using UIManagement.Panel;
+using UIManagement.UIManager;
 
 namespace Bag
 {
@@ -29,14 +35,9 @@ namespace Bag
         [SerializeField]
         private GameObject copperLight;
 
-        private IBackpackUI backPackUI;
+        private IBackpackUI backPackUI = null;
 
         private Dictionary<string, GameObject> connectedItems = new Dictionary<string, GameObject>();
-
-        private void Update()
-        {
-            //UseProps();
-        }
 
         #region 添加道具到背包中
 
@@ -166,20 +167,50 @@ namespace Bag
 
         #endregion 拾取道具的时候，修改道具的状态位不可见
 
+        // 背包后端前端链接方法与回调
         public void SetBackpackUI(IBackpackUI backpack, Action callback)
         {
             this.backPackUI = backpack;
             callback.Invoke();
         }
 
+        // 场景链接互动物体对象
         public void ItemConnect(string name, GameObject obj)
         {
             connectedItems.Add(name, obj);
         }
 
+        // 清除场景互动对象
         public void CleanConncectedItems()
         {
             connectedItems.Clear();
+        }
+
+        // 场景切换时BagManager的处理，由场景类调用
+        public void OnSceneExit()
+        {
+            backPackUI = null;
+            CleanConncectedItems();
+            UnitySceneManager.sceneLoaded += SceneLoaded;
+        }
+
+        private void SceneLoaded(UnityScene scene, LoadSceneMode mode)
+        {
+            IEnumerator enumerator = RecoverBackpackUICoroutine();
+            StartCoroutine(enumerator);
+            UnitySceneManager.sceneLoaded -= SceneLoaded;
+        }
+
+        private IEnumerator RecoverBackpackUICoroutine()
+        {
+            while (backPackUI == null)
+            {
+                yield return null;
+            }
+            foreach(var item in itemList)
+            {
+                backPackUI.AddItemUI(item);
+            }
         }
     }
 }
