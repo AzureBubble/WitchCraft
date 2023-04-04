@@ -1,0 +1,3 @@
+Assets/Resources/Scene 1/VP.jpg
+主角
+门锁着进不去。

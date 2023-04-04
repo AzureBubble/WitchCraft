@@ -459,7 +459,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 42.453743, y: 10.8}
-    newSize: {x: 63.78, y: 10.806475}
+    newSize: {x: 42.453743, y: 10.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -508,12 +508,12 @@ SpriteRenderer:
   m_SortingLayerID: -260033797
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 928d5bca8547a2841a5fd9e49f7200b2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 588e5bd5d74cba146b937859a56fecf2, type: 3}
   m_Color: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 63.78, y: 10.806475}
+  m_Size: {x: 42.453743, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -552,7 +552,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 42.453743, y: 10.8}
-    newSize: {x: 63.78, y: 10.806475}
+    newSize: {x: 42.453743, y: 10.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -578,7 +578,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 42.453743, y: 10.8}
-    newSize: {x: 63.78, y: 10.806475}
+    newSize: {x: 42.453743, y: 10.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -604,7 +604,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 42.453743, y: 10.8}
-    newSize: {x: 63.78, y: 10.806475}
+    newSize: {x: 42.453743, y: 10.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -689,7 +689,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383302013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.0308, y: -1.0059, z: 0}
+  m_LocalPosition: {x: -7.91, y: -1.0059, z: 0}
   m_LocalScale: {x: 0.828733, y: 0.8205971, z: 0.8165292}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1248,6 +1248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  anim: {fileID: 0}
 --- !u!95 &6007324575643884958
 Animator:
   serializedVersion: 5
@@ -1306,7 +1307,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.27, y: 13.99}
+    oldSize: {x: 8.17, y: 14.23}
     newSize: {x: 8.27, y: 13.99}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
