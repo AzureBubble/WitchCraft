@@ -527,7 +527,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288520816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.017719746, y: 0.006160021, z: -10}
+  m_LocalPosition: {x: 0.021025658, y: 0.00612998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -998,7 +998,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  anim: {fileID: 441151062}
 --- !u!95 &441151062
 Animator:
   serializedVersion: 5
@@ -1604,6 +1603,11 @@ PrefabInstance:
 --- !u!4 &1122638364 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8139391174841623519, guid: 89d3877f2957c0f4394cb69d23eac556, type: 3}
+  m_PrefabInstance: {fileID: 1122638363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1122638365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4394838257596837677, guid: 89d3877f2957c0f4394cb69d23eac556, type: 3}
   m_PrefabInstance: {fileID: 1122638363}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1133524487
@@ -3094,6 +3098,7 @@ GameObject:
   - component: {fileID: 2082942534}
   - component: {fileID: 2082942536}
   - component: {fileID: 2082942537}
+  - component: {fileID: 2082942538}
   m_Layer: 0
   m_Name: Alter-lampBox
   m_TagString: Untagged
@@ -3204,12 +3209,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 2082942533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce1027774869ea44a829240747601f0e, type: 3}
+  m_Script: {fileID: 11500000, guid: 54819cfae5cced243bbd371782787b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Height: 2
-  dialogKeyCode: 114
-  textPath: Scene 1/Dialogue/TXT/Txt_1
+  Button_dialogue: {fileID: 1122638365}
+  TalkUI: {fileID: 8328108}
+--- !u!114 &2082942538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082942533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c42af42b476f2749b641552b0a6a1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textLabel: {fileID: 1679893366}
+  textFile: {fileID: 4900000, guid: cf41e0c56c572d04dbbbc1af298751fa, type: 3}
+  TalkUI: {fileID: 8328108}
+  index: 1
+  columnNum: 1
+  textSpeed: 0.1
 --- !u!1 &2084905024
 GameObject:
   m_ObjectHideFlags: 0
