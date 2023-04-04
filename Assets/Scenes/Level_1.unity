@@ -527,7 +527,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288520816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.021025658, y: 0.00612998, z: -10}
+  m_LocalPosition: {x: 0.013029575, y: 0.0061900616, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1813,6 +1813,7 @@ GameObject:
   - component: {fileID: 1299416900}
   - component: {fileID: 1299416899}
   - component: {fileID: 1299416898}
+  - component: {fileID: 1299416903}
   m_Layer: 0
   m_Name: Alter-Door
   m_TagString: Untagged
@@ -1827,7 +1828,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299416897}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c42af42b476f2749b641552b0a6a1d5, type: 3}
   m_Name: 
@@ -1845,7 +1846,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299416897}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54819cfae5cced243bbd371782787b8b, type: 3}
   m_Name: 
@@ -1946,6 +1947,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1299416903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299416897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f762f4f2b2af04754b1193af43b2ee2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requireItem: 3
 --- !u!1 &1307987832
 GameObject:
   m_ObjectHideFlags: 0
@@ -3099,6 +3113,8 @@ GameObject:
   - component: {fileID: 2082942536}
   - component: {fileID: 2082942537}
   - component: {fileID: 2082942538}
+  - component: {fileID: 2082942540}
+  - component: {fileID: 2082942539}
   m_Layer: 0
   m_Name: Alter-lampBox
   m_TagString: Untagged
@@ -3207,7 +3223,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082942533}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54819cfae5cced243bbd371782787b8b, type: 3}
   m_Name: 
@@ -3221,7 +3237,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082942533}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c42af42b476f2749b641552b0a6a1d5, type: 3}
   m_Name: 
@@ -3232,6 +3248,35 @@ MonoBehaviour:
   index: 1
   columnNum: 1
   textSpeed: 0.1
+--- !u!114 &2082942539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082942533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce1027774869ea44a829240747601f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Height: 1
+  dialogKeyCode: 102
+  textPath: 
+--- !u!114 &2082942540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082942533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36353b6d15c28fa44b428f4e63242c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: 2
+  pickupKeyCode: 102
 --- !u!1 &2084905024
 GameObject:
   m_ObjectHideFlags: 0
@@ -3244,6 +3289,7 @@ GameObject:
   - component: {fileID: 2084905025}
   - component: {fileID: 2084905027}
   - component: {fileID: 2084905030}
+  - component: {fileID: 2084905031}
   m_Layer: 0
   m_Name: Alter-SwordBox
   m_TagString: Untagged
@@ -3359,6 +3405,20 @@ MonoBehaviour:
   Height: 2
   dialogKeyCode: 114
   textPath: Scene 1/Dialogue/TXT/Txt_1
+--- !u!114 &2084905031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084905024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36353b6d15c28fa44b428f4e63242c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: 3
+  pickupKeyCode: 102
 --- !u!1 &2142218493
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@
 /// </summary>
 public enum ItemName
 {
-    None, Item, Light
+    None, Item, Light, Sword
 }
 
 /// <summary>

@@ -7,40 +7,49 @@ namespace Bag
 {
     public class Item : MonoBehaviour
     {
-        [Header("µÀ¾ßÊôÐÔ")]
-        [Tooltip("µÀ¾ßÃû×Ö")]
+        [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
         [SerializeField]
         private ItemName itemName;
 
         [SerializeField]
-        private GameObject buttonF;
+        private KeyCode pickupKeyCode = KeyCode.F;
+
+        //[SerializeField]
+        //private GameObject buttonF;
+        private bool isPicked = false;
 
         public ItemName ItemName { get => itemName; private set => itemName = value; }
 
         private void Update()
         {
-            if (buttonF.activeSelf && Input.GetKeyDown(KeyCode.F))
-            {
-                ItemClick();
-            }
+            //if (buttonF.activeSelf && Input.GetKeyDown(KeyCode.F))
+            //{
+            //    ItemClick();
+            //}
         }
 
-        #region µÀ¾ßµÄµã»÷ÊÂ¼þ
+        #region ï¿½ï¿½ï¿½ßµÄµï¿½ï¿½ï¿½Â¼ï¿½
 
         public void ItemClick()
         {
-            // Ìí¼Óµ½±³°üÖÐ²¢Òþ²ØµÀ¾ß
-            MainController.Instance.BagManger.AddItem(ItemName);
-            gameObject.SetActive(false);
+            // ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½
+            if (!isPicked)
+            {
+                Debug.Log($"{this}: {itemName}.ItemCLick().");
+                MainController.Instance.BagManger.AddItem(ItemName);
+                //gameObject.SetActive(false);
+            }
         }
 
-        #endregion µÀ¾ßµÄµã»÷ÊÂ¼þ
+        #endregion ï¿½ï¿½ï¿½ßµÄµï¿½ï¿½ï¿½Â¼ï¿½
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Player"))
             {
-                buttonF.SetActive(true);
+                //buttonF.SetActive(true);
+                MainController.Instance.InputManager.RegisterKeyDown(pickupKeyCode, ItemClick);
             }
         }
 
@@ -48,7 +57,8 @@ namespace Bag
         {
             if (collision.CompareTag("Player"))
             {
-                buttonF.SetActive(false);
+                //buttonF.SetActive(false);
+                MainController.Instance.InputManager.WithdrawKeyDown(pickupKeyCode, ItemClick);
             }
         }
     }
