@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 848561023052971953}
   m_Layer: 5
-  m_Name: LampUI
+  m_Name: LightUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
