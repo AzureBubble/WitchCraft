@@ -8,11 +8,8 @@ namespace DialogSystem
     {
         public DialogLoader() { }
 
-        public IDialogData LoadDialogData(string path)
+        public IDialogData LoadDialogData(TextAsset textAsset)
         {
-            TextAsset textAsset = Resources.Load<TextAsset>(path);
-            Debug.Log(textAsset.text);
-
             List<string> originTexts = new List<string>(textAsset.text.Split("\n"));
 
             var overflow = originTexts.Count % 4;

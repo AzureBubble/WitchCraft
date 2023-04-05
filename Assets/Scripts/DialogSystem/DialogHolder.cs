@@ -8,54 +8,38 @@ using DialogSystem;
 
 public class DialogHolder : MonoBehaviour
 {
-    private static readonly string iconPath = "UIManagement/DialogSystem/DialogHint";
-
-    [SerializeField]
-    private float Height = 1f;
     [SerializeField]
     private KeyCode dialogKeyCode = KeyCode.F;
     [SerializeField]
-    private string textPath = "";
-
-    private GameObject dialogHintPrefab;
-    private GameObject dialogHint;
+    private TextAsset textAsset;
 
     private DialogLoader dialogLoader;
     private IDialogData dialogData;
 
     private void Awake()
     {
-        dialogHintPrefab = Resources.Load<GameObject>(iconPath);
         dialogLoader = new DialogLoader();
-        dialogData = dialogLoader.LoadDialogData(textPath);
+        dialogData = dialogLoader.LoadDialogData(textAsset);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerController>() != null)
+        if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log($"{this}: player collision enter");
-            dialogHint = GameObject.Instantiate(dialogHintPrefab, this.transform);
-            dialogHint.transform.position = new Vector2(transform.position.x, transform.position.y + Height);
             MainController.Instance.InputManager.RegisterKeyDown(dialogKeyCode, OpenDialogPanel);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerController>() != null)
+        if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log($"{this}: player collision exit");
-
+            MainController.Instance.InputManager.WithdrawKeyDown(dialogKeyCode, OpenDialogPanel);
             if (MainController.Instance.UIManager.Peek().Type.Name == "DialogPanel")
             {
                 MainController.Instance.UIManager.Pop();
-            }
-
-            if (dialogHint != null)
-            {
-                Destroy(dialogHint);
-                MainController.Instance.InputManager.WithdrawKeyDown(dialogKeyCode, OpenDialogPanel);
             }
         }
     }
