@@ -9,11 +9,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;           //角色刚体
     private float faceturn;
-    public GameObject Bag;  //背包界面
-    void Awake()
-    {
-        Clickable._instance = new Clickable();
-    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,28 +21,8 @@ public class PlayerController : MonoBehaviour
     {
         Movement(); //角色移动函数
         Animationswitch();  //动画切换函数
-        Click();    //按键按下事件
     }
 
-    private void Click()
-    {
-        if(Input.GetKeyDown(KeyCode.F) && Clickable._instance.ClickableF == 1)
-        {
-            Debug.Log("按下了F");
-        }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            if (Bag.activeSelf == false)
-            {
-                Bag.SetActive(true);
-            }
-            else
-            {
-                Bag.SetActive(false);
-            }
-
-        }
-    }
     private void Movement() //角色移动函数
     {
         float horizontalmove = Input.GetAxis("Horizontal");   //水平移动

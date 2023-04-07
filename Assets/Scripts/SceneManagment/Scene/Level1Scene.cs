@@ -35,6 +35,7 @@ namespace SceneManagement.Scene
             MainController.Instance.InputManager.PopLayer();
             MainController.Instance.UIManager.PopAll();
             MainController.Instance.UIManager = null;
+            MainController.Instance.BagManger.OnSceneExit();
         }
 
         private void SceneLoaded(UnityScene scene, LoadSceneMode mode)
