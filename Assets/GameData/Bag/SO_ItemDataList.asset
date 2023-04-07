@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SO_ItemDataList
   m_EditorClassIdentifier: 
   itemDetailsList:
-  - itemName: 1
+  - itemName: 2
     itemSprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}

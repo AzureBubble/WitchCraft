@@ -11,6 +11,7 @@ using MainControl;
 using SceneManagement.Scene;
 using UIManagement.Panel;
 using UIManagement.UIManager;
+using UnityEngine.Rendering.Universal;
 
 namespace Bag
 {
@@ -47,6 +48,7 @@ namespace Bag
             {
                 // 背包中不存在该数据则添加到背包里
                 itemList.Add(itemName);
+                Debug.Log("添加 " + itemName + " 成功！");
                 //TODO: 同时在背包 UI 中显示出来
                 //EventHandler.CallUpdateUIEvent(itemData.GetItemDetails(itemName), itemList.Count - 1);
                 backPackUI.AddItemUI(itemName);
@@ -75,15 +77,25 @@ namespace Bag
                     itemList.Remove(itemName);
                     backPackUI.RemoveItemUI(itemName);
                     break;
+
                 case ItemName.Light:
+                    Debug.Log("使用 " + itemName + " 成功！");
+                    Light2D light = GameObject.Find("Player").GetComponentInChildren<Light2D>();
+                    if (light)
+                    {
+                        light.enabled = !light.enabled;
+                    }
                     break;
+
                 case ItemName.Sword:
                     bool success = connectedItems["Alter-Door"].GetComponent<AlterDoor>().CheckItem(itemName);
+                    Debug.Log("使用 " + itemName + " 成功！");
                     if (success)
                     {
                         RemoveItem(itemName);
                     }
                     break;
+
                 default:
                     break;
             }
@@ -210,7 +222,7 @@ namespace Bag
             {
                 yield return null;
             }
-            foreach(var item in itemList)
+            foreach (var item in itemList)
             {
                 backPackUI.AddItemUI(item);
             }

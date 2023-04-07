@@ -411,7 +411,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogKeyCode: 102
-  textAsset: {fileID: 4900000, guid: d78bcd86916766c4087c2493f6869d69, type: 3}
+  textIndex: 0
+  textAsset:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!61 &126622642
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -928,7 +932,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183253642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.017721176, y: 0.0061500072, z: -10}
+  m_LocalPosition: {x: 0.01977253, y: 0.0061399937, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1345,7 +1349,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogKeyCode: 102
-  textAsset: {fileID: 4900000, guid: d78bcd86916766c4087c2493f6869d69, type: 3}
+  textIndex: 0
+  textAsset:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!61 &1506917243
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1599,7 +1607,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogKeyCode: 102
-  textAsset: {fileID: 0}
+  textIndex: 0
+  textAsset:
+  - {fileID: 0}
 --- !u!61 &1518023574
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1730,7 +1740,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769374042}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -2173,7 +2183,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogKeyCode: 102
-  textAsset: {fileID: 0}
+  textIndex: 0
+  textAsset:
+  - {fileID: 0}
 --- !u!61 &2127344546
 BoxCollider2D:
   m_ObjectHideFlags: 0
