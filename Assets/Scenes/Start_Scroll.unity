@@ -405,10 +405,10 @@ MonoBehaviour:
   textLabel: {fileID: 7110465608653774151}
   textFile: {fileID: 4900000, guid: e4cf1b5b15035c34aa5986cc18597d77, type: 3}
   TalkUI: {fileID: 7110465607260171380}
-  index: 10
-  columnNum: 10
+  index: 11
+  columnNum: 11
   textSpeed: 0.1
-  nextScene: 
+  nextScene: StartGame
 --- !u!114 &7110465607319918344
 MonoBehaviour:
   m_ObjectHideFlags: 0
