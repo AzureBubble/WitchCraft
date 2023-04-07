@@ -49,7 +49,6 @@ namespace Bag
                 // 背包中不存在该数据则添加到背包里
                 itemList.Add(itemName);
                 Debug.Log("添加 " + itemName + " 成功！");
-                //TODO: 同时在背包 UI 中显示出来
                 //EventHandler.CallUpdateUIEvent(itemData.GetItemDetails(itemName), itemList.Count - 1);
                 backPackUI.AddItemUI(itemName);
             }
@@ -85,6 +84,7 @@ namespace Bag
                     {
                         light.enabled = !light.enabled;
                     }
+                    //TODO:更改提灯动作
                     break;
 
                 case ItemName.Sword:
