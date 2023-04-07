@@ -50,6 +50,8 @@ namespace Bag
                 itemList.Add(itemName);
                 Debug.Log("添加 " + itemName + " 成功！");
                 //EventHandler.CallUpdateUIEvent(itemData.GetItemDetails(itemName), itemList.Count - 1);
+                //TODO：获取道具的名字和图片信息
+                //itemData.GetItemDetails(itemName).itemSprite;
                 backPackUI.AddItemUI(itemName);
             }
         }
