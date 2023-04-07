@@ -52,8 +52,14 @@ namespace DialogSystem
                     Sprite sprite = Resources.Load<Sprite>(avatar_path);
                     string speaker = each[1];
                     string content = each[2];
+
+                    List<string> buttons = new List<string>();
+                    for(int i = 3; i < each.Count; ++i)
+                    {
+                        buttons.Add(each[i]);
+                    }
                     
-                    dialogs.Add(new SingleDialog(sprite, speaker, content));
+                    dialogs.Add(new SingleDialog(sprite, speaker, content, buttons));
                 }
             }
         }
