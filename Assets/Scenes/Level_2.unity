@@ -1212,7 +1212,7 @@ MonoBehaviour:
   dialogKeyCode: 102
   textIndex: 0
   textAsset:
-  - {fileID: 0}
+  - {fileID: 4900000, guid: 3bbbe9090463a614ebc9ec3d3e29a934, type: 3}
 --- !u!114 &1275649020
 MonoBehaviour:
   m_ObjectHideFlags: 0
