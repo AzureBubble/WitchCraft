@@ -27,15 +27,17 @@ public class AlterDoor : Interactive
         }
     }
 
-    public new void CheckItem(ItemName name)
+    public new bool CheckItem(ItemName name)
     {
         if (isPlayerIn)
         {
             base.CheckItem(name);
+            return true;
         }
         else
         {
             Debug.Log($"{this}: isPlayerIn =  {isPlayerIn}");
+            return false;
         }
     }
 

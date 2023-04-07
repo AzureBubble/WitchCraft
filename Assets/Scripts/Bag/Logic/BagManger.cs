@@ -78,8 +78,11 @@ namespace Bag
                 case ItemName.Light:
                     break;
                 case ItemName.Sword:
-                    connectedItems["Alter-Door"]?.GetComponent<AlterDoor>().CheckItem(itemName);
-                    RemoveItem(itemName);
+                    bool success = connectedItems["Alter-Door"].GetComponent<AlterDoor>().CheckItem(itemName);
+                    if (success)
+                    {
+                        RemoveItem(itemName);
+                    }
                     break;
                 default:
                     break;
