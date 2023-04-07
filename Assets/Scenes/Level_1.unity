@@ -2132,7 +2132,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogKeyCode: 102
-  textAsset: {fileID: 4900000, guid: b0c3ab36295e1484bba577c30939baab, type: 3}
+  textIndex: 0
+  textAsset:
+  - {fileID: 4900000, guid: b0c3ab36295e1484bba577c30939baab, type: 3}
 --- !u!1 &1307987832
 GameObject:
   m_ObjectHideFlags: 0
@@ -3401,7 +3403,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogKeyCode: 102
-  textAsset: {fileID: 4900000, guid: cf41e0c56c572d04dbbbc1af298751fa, type: 3}
+  textIndex: 0
+  textAsset:
+  - {fileID: 4900000, guid: cf41e0c56c572d04dbbbc1af298751fa, type: 3}
 --- !u!114 &2082942540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3557,7 +3561,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogKeyCode: 102
-  textAsset: {fileID: 4900000, guid: 438120b6ee42ac64fba47c269d248912, type: 3}
+  textIndex: 0
+  textAsset:
+  - {fileID: 4900000, guid: 438120b6ee42ac64fba47c269d248912, type: 3}
 --- !u!114 &2084905031
 MonoBehaviour:
   m_ObjectHideFlags: 0
