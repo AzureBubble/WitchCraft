@@ -9,8 +9,6 @@ public class AlterDoor : Interactive
 {
     private bool isPlayerIn = false;
 
-    public bool IsPlayerIn { get => isPlayerIn; }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -29,11 +27,17 @@ public class AlterDoor : Interactive
         }
     }
 
-    public new void CheckItem(ItemName name)
+    public new bool CheckItem(ItemName name)
     {
         if (isPlayerIn)
         {
             base.CheckItem(name);
+            return true;
+        }
+        else
+        {
+            Debug.Log($"{this}: isPlayerIn =  {isPlayerIn}");
+            return false;
         }
     }
 
