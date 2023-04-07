@@ -21,7 +21,7 @@ namespace Bag
 
         public ItemName ItemName { get => itemName; private set => itemName = value; }
 
-        private void Update()
+        public virtual void Update()
         {
             //if (buttonF.activeSelf && Input.GetKeyDown(KeyCode.F))
             //{
@@ -31,7 +31,7 @@ namespace Bag
 
         #region ���ߵĵ���¼�
 
-        public void ItemClick()
+        public virtual void ItemClick()
         {
             // ���ӵ������в����ص���
             if (!isPicked)
@@ -44,7 +44,7 @@ namespace Bag
 
         #endregion ���ߵĵ���¼�
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        public virtual void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Player"))
             {
@@ -53,7 +53,7 @@ namespace Bag
             }
         }
 
-        private void OnTriggerExit2D(Collider2D collision)
+        public virtual void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.CompareTag("Player"))
             {
