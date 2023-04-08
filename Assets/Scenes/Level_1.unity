@@ -1557,6 +1557,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: light
       objectReference: {fileID: 0}
+    - target: {fileID: 8632326046190218538, guid: 0cccd23364e6c0d48984f244b98dbf1e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8632326046190218543, guid: 0cccd23364e6c0d48984f244b98dbf1e, type: 3}
       propertyPath: m_RootOrder
       value: 1
