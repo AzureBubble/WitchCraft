@@ -673,7 +673,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874805121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.33, y: -4.38, z: -0.089499205}
+  m_LocalPosition: {x: 7.33, y: -3.39, z: -0.089499205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2203,7 +2203,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &2023743298
 BoxCollider2D:
@@ -2215,7 +2215,7 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.9519298, y: -0.19407082}
@@ -2245,9 +2245,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackArea: {fileID: 2023743298}
   target: {fileID: 874805122}
-  moveSpeed: 3
-  waitForAttack: 0.5
-  multipleSpeed: 0.05
+  moveSpeed: 0.1
+  waitForAttack: 2
+  multipleSpeed: 0.001
 --- !u!70 &2023743300
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
