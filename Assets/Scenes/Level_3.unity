@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 1971114082460498113}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5.4
@@ -755,7 +755,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558983577}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.6, y: -2.45, z: -10}
+  m_LocalPosition: {x: 3.6, y: -2.462, z: -10}
   m_LocalScale: {x: -0.38, y: -0.38, z: -0.38}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2252,7 +2252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526883065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.015603781, y: -0.0587101, z: -10}
+  m_LocalPosition: {x: 0.017634153, y: -0.0587101, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3196,3 +3196,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c685c1c7751b1f8419f332915fdac28c, type: 3}
+--- !u!4 &1971114082460498113 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4318405697646772273, guid: c685c1c7751b1f8419f332915fdac28c, type: 3}
+  m_PrefabInstance: {fileID: 1971114082460498112}
+  m_PrefabAsset: {fileID: 0}
