@@ -11,7 +11,9 @@ public class DialogHolder : MonoBehaviour
     [SerializeField]
     private KeyCode dialogKeyCode = KeyCode.F;
     [SerializeField]
-    private TextAsset textAsset;
+    private int textIndex = 0;
+    [SerializeField]
+    private List<TextAsset> textAsset;
 
     private DialogLoader dialogLoader;
     private IDialogData dialogData;
@@ -19,7 +21,6 @@ public class DialogHolder : MonoBehaviour
     private void Awake()
     {
         dialogLoader = new DialogLoader();
-        dialogData = dialogLoader.LoadDialogData(textAsset);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,6 +47,7 @@ public class DialogHolder : MonoBehaviour
 
     private void OpenDialogPanel()
     {
+        dialogData = dialogLoader.LoadDialogData(textAsset[textIndex]);
         dialogData.ResetIndex();
         MainController.Instance.UIManager.Push(new DialogPanel(dialogData));
     }

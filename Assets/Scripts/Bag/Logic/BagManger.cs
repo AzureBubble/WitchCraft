@@ -1,10 +1,17 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UIManagement.BackpackSystem;
+using LoadSceneMode = UnityEngine.SceneManagement.LoadSceneMode;
+using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
+using UnityScene = UnityEngine.SceneManagement.Scene;
 
 using MainControl;
 using SceneManagement.Scene;
+using UIManagement.Panel;
+using UIManagement.UIManager;
+using UnityEngine.Rendering.Universal;
 
 namespace Bag
 {
@@ -29,14 +36,9 @@ namespace Bag
         [SerializeField]
         private GameObject copperLight;
 
-        private IBackpackUI backPackUI;
+        private IBackpackUI backPackUI = null;
 
         private Dictionary<string, GameObject> connectedItems = new Dictionary<string, GameObject>();
-
-        private void Update()
-        {
-            //UseProps();
-        }
 
         #region 添加道具到背包中
 
@@ -46,8 +48,10 @@ namespace Bag
             {
                 // 背包中不存在该数据则添加到背包里
                 itemList.Add(itemName);
-                //TODO: 同时在背包 UI 中显示出来
+                Debug.Log("添加 " + itemName + " 成功！");
                 //EventHandler.CallUpdateUIEvent(itemData.GetItemDetails(itemName), itemList.Count - 1);
+                //TODO：获取道具的名字和图片信息
+                //itemData.GetItemDetails(itemName).itemSprite;
                 backPackUI.AddItemUI(itemName);
             }
         }
@@ -74,12 +78,26 @@ namespace Bag
                     itemList.Remove(itemName);
                     backPackUI.RemoveItemUI(itemName);
                     break;
+
                 case ItemName.Light:
+                    Debug.Log("使用 " + itemName + " 成功！");
+                    Light2D light = GameObject.Find("Player").GetComponentInChildren<Light2D>();
+                    if (light)
+                    {
+                        light.enabled = !light.enabled;
+                    }
+                    //TODO:更改提灯动作
                     break;
+
                 case ItemName.Sword:
-                    connectedItems["Alter-Door"]?.GetComponent<AlterDoor>().CheckItem(itemName);
-                    RemoveItem(itemName);
+                    bool success = connectedItems["Alter-Door"].GetComponent<AlterDoor>().CheckItem(itemName);
+                    Debug.Log("使用 " + itemName + " 成功！");
+                    if (success)
+                    {
+                        RemoveItem(itemName);
+                    }
                     break;
+
                 default:
                     break;
             }
@@ -166,20 +184,50 @@ namespace Bag
 
         #endregion 拾取道具的时候，修改道具的状态位不可见
 
+        // 背包后端前端链接方法与回调
         public void SetBackpackUI(IBackpackUI backpack, Action callback)
         {
             this.backPackUI = backpack;
             callback.Invoke();
         }
 
+        // 场景链接互动物体对象
         public void ItemConnect(string name, GameObject obj)
         {
             connectedItems.Add(name, obj);
         }
 
+        // 清除场景互动对象
         public void CleanConncectedItems()
         {
             connectedItems.Clear();
+        }
+
+        // 场景切换时BagManager的处理，由场景类调用
+        public void OnSceneExit()
+        {
+            backPackUI = null;
+            CleanConncectedItems();
+            UnitySceneManager.sceneLoaded += SceneLoaded;
+        }
+
+        private void SceneLoaded(UnityScene scene, LoadSceneMode mode)
+        {
+            IEnumerator enumerator = RecoverBackpackUICoroutine();
+            StartCoroutine(enumerator);
+            UnitySceneManager.sceneLoaded -= SceneLoaded;
+        }
+
+        private IEnumerator RecoverBackpackUICoroutine()
+        {
+            while (backPackUI == null)
+            {
+                yield return null;
+            }
+            foreach (var item in itemList)
+            {
+                backPackUI.AddItemUI(item);
+            }
         }
     }
 }

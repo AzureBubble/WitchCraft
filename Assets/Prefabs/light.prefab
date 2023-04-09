@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8632326046190218543}
   - component: {fileID: 8632326046190218536}
   - component: {fileID: 8632326046190218537}
-  - component: {fileID: 8632326046190218542}
+  - component: {fileID: 2575372816650769406}
   m_Layer: 0
   m_Name: light
   m_TagString: Collection
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8632326046190218538}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.86, y: -3.11, z: 0}
   m_LocalScale: {x: 0.66412, y: 0.66412, z: 0.66412}
   m_ConstrainProportionsScale: 0
@@ -73,10 +73,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -212477365
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c81de9b8128ef14eb9c11d2cac3f49d, type: 3}
   m_Color: {r: 1, g: 0.95523554, b: 0.042452812, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,8 +103,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.21133333}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.89, y: 12.3}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -113,7 +113,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8632326046190218542
+--- !u!114 &2575372816650769406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,11 +122,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8632326046190218538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36353b6d15c28fa44b428f4e63242c84, type: 3}
+  m_Script: {fileID: 11500000, guid: a1220c363cfd8d742a9b9178e4026666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 1
-  buttonF: {fileID: 8632326047997379795}
+  itemName: 2
+  pickupKeyCode: 102
 --- !u!1 &8632326047997379795
 GameObject:
   m_ObjectHideFlags: 0

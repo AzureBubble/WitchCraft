@@ -17,8 +17,6 @@ namespace UIManagement
             if (collision.gameObject.CompareTag("Player"))
             {
                 ButtonHint.SetActive(true);
-                Clickable._instance.ClickableF = 1; //将F键设置为可按下状态
-                //Debug.Log(Clickable._instance.ClickableF);
             }
         }
 
@@ -28,7 +26,6 @@ namespace UIManagement
             if (collision.gameObject.CompareTag("Player"))
             {
                 ButtonHint.SetActive(false);
-                Clickable._instance.ClickableF = 0; //将F键设置为不可按下状态
             }
         }
     }

@@ -1,1 +1,4 @@
+Assets/Resources/Scene 1/VP.jpg
+门
 一扇门，音乐听得见里面有什么被悬吊着的声音。
+confirm/确认 cancel/取消

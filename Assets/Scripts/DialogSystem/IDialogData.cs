@@ -17,11 +17,13 @@ namespace DialogSystem
         public Sprite Avatar;
         public string Speaker;
         public string Content;
-        public SingleDialog(Sprite avatar, string speaker, string content)
+        public List<string> Buttons;
+        public SingleDialog(Sprite avatar, string speaker, string content, List<string> buttons)
         {
             Avatar = avatar;
             Speaker = speaker;
             Content = content;
+            Buttons = buttons;
         }
     }
 }

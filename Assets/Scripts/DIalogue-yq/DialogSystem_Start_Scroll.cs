@@ -64,12 +64,12 @@ public class DialogSystem_Start_Scroll : MonoBehaviour
         }
 
         if (Input.GetButtonDown("Fire1") && textFinished)  // °´ÏÂÊó±ê×ó¼ü
-        {
+      {
             //textLabel.text = textList[index];
             //index++;
             
             StartCoroutine(SetTextUI());
-        }
+      }
        
     }
 
