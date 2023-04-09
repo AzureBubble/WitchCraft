@@ -17,6 +17,8 @@ namespace Bag
 {
     public class BagManger : MonoBehaviour
     {
+        public PlayerController player;
+
         public static readonly string Path = "MainControl/BagManger";
 
         // 保存场景中的道具状态
@@ -68,7 +70,6 @@ namespace Bag
         #endregion 添加道具到背包中
 
         #region 使用道具
-
         public void UseProps(ItemName itemName)
         {
             Debug.Log($"{this}: {itemName} clicked");
@@ -87,6 +88,16 @@ namespace Bag
                         light.enabled = !light.enabled;
                     }
                     //TODO:更改提灯动作
+                    player = GameObject.Find("Player").GetComponent<PlayerController>();
+                    if (player.Takelamp==1)
+                    {
+                        player.Takelamp = 0;  // 将player脚本的拿灯状态设置为false
+                    }
+                    else if(player.Takelamp == 0)
+                    {
+                        player.Takelamp = 1;  // 将player脚本的拿灯状态设置为true
+                    }
+                    
                     break;
 
                 case ItemName.Sword:
