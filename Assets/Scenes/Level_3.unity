@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 1823099393}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5.4
@@ -755,7 +755,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558983577}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.69, y: -2.21, z: -10}
+  m_LocalPosition: {x: 3.6, y: -2.45, z: -10}
   m_LocalScale: {x: -0.38, y: -0.38, z: -0.38}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -816,11 +816,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4318405697646772279, guid: 83be37fb82dfa6b42926e8535a69d0cd, type: 3}
       propertyPath: m_Size.x
-      value: 1.3490694
+      value: 3.394964
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318405697646772279, guid: 83be37fb82dfa6b42926e8535a69d0cd, type: 3}
+      propertyPath: m_Size.y
+      value: 13.01326
       objectReference: {fileID: 0}
     - target: {fileID: 4318405697646772279, guid: 83be37fb82dfa6b42926e8535a69d0cd, type: 3}
       propertyPath: m_Offset.x
-      value: -2.1090093
+      value: -0.20081413
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318405697646772279, guid: 83be37fb82dfa6b42926e8535a69d0cd, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.2093029
       objectReference: {fileID: 0}
     - target: {fileID: 4318405697646772287, guid: 83be37fb82dfa6b42926e8535a69d0cd, type: 3}
       propertyPath: m_Name
@@ -1659,7 +1667,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04021263, y: 3.154383}
+  m_Offset: {x: -0.04021263, y: 2.9047701}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1670,7 +1678,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 42.373318, y: 4.4912333}
+  m_Size: {x: 42.373318, y: 4.990459}
   m_EdgeRadius: 0
 --- !u!61 &1297550672
 BoxCollider2D:
@@ -2152,7 +2160,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526883065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.017633915, y: -0.0587101, z: -10}
+  m_LocalPosition: {x: 0.017634153, y: -0.0587101, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2558,6 +2566,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1823099393 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4318405697646772273, guid: 83be37fb82dfa6b42926e8535a69d0cd, type: 3}
+  m_PrefabInstance: {fileID: 662262921}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1833072657
 PrefabInstance:
   m_ObjectHideFlags: 0
