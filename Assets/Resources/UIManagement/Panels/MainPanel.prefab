@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 10
+    m_Left: 55
     m_Right: 10
     m_Top: 10
     m_Bottom: 10
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 130, y: 150}
-  m_Spacing: {x: 10, y: 10}
+  m_Spacing: {x: 20, y: 10}
   m_Constraint: 2
   m_ConstraintCount: 1
 --- !u!114 &3384419140050946916
@@ -788,7 +788,7 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 10
   m_TargetDisplay: 0
