@@ -9,10 +9,7 @@ public class SceneChanger : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-           
-                
-                    SceneManager.LoadScene(sceneName);
-                
-            }
+            SceneManager.LoadScene(sceneName);
         }
     }
+}

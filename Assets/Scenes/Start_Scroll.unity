@@ -717,8 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67297a377d3a0d49a724258fe78008d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 2064106109}
-  sceneName: StartGame
+  sceneName: Level_1
 --- !u!1 &7110465607260171380
 GameObject:
   m_ObjectHideFlags: 0
