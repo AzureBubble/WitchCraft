@@ -4,51 +4,70 @@ using UnityEngine;
 
 using MainControl;
 using UIManagement.Panel;
-using DialogSystem;
+using DialogSystem.ButtonListener;
 
-public class DialogHolder : MonoBehaviour
+namespace DialogSystem
 {
-    [SerializeField]
-    private KeyCode dialogKeyCode = KeyCode.F;
-    [SerializeField]
-    private int textIndex = 0;
-    [SerializeField]
-    private List<TextAsset> textAsset;
-
-    private DialogLoader dialogLoader;
-    private IDialogData dialogData;
-
-    private void Awake()
+    public class DialogHolder : MonoBehaviour
     {
-        dialogLoader = new DialogLoader();
-    }
+        [SerializeField]
+        private KeyCode dialogKeyCode = KeyCode.F;
+        [SerializeField]
+        private int textIndex = 0;
+       
+        [SerializeField]
+        private List<TextAsset> textAsset;
+        
+        private BaseButtonListener listener;
+        private DialogLoader dialogLoader;
+        private IDialogData dialogData;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
+        public int TextIndex
         {
-            Debug.Log($"{this}: player collision enter");
-            MainController.Instance.InputManager.RegisterKeyDown(dialogKeyCode, OpenDialogPanel);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log($"{this}: player collision exit");
-            MainController.Instance.InputManager.WithdrawKeyDown(dialogKeyCode, OpenDialogPanel);
-            if (MainController.Instance.UIManager.Peek().Type.Name == "DialogPanel")
+            get
             {
-                MainController.Instance.UIManager.Pop();
+                return textIndex;
+            }
+            set
+            {
+                textIndex = value;
             }
         }
-    }
 
-    private void OpenDialogPanel()
-    {
-        dialogData = dialogLoader.LoadDialogData(textAsset[textIndex]);
-        dialogData.ResetIndex();
-        MainController.Instance.UIManager.Push(new DialogPanel(dialogData));
+        private void Awake()
+        {
+            listener = GetComponent<BaseButtonListener>();
+            dialogLoader = new DialogLoader();
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                Debug.Log($"{this}: player collision enter");
+                MainController.Instance.InputManager.RegisterKeyDown(dialogKeyCode, OpenDialogPanel);
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                Debug.Log($"{this}: player collision exit");
+                MainController.Instance.InputManager.WithdrawKeyDown(dialogKeyCode, OpenDialogPanel);
+                if (MainController.Instance.UIManager.Peek().Type.Name == "DialogPanel")
+                {
+                    MainController.Instance.UIManager.Pop();
+                }
+            }
+        }
+
+        private void OpenDialogPanel()
+        {
+            dialogData = dialogLoader.LoadDialogData(textAsset[textIndex]);
+            dialogData.ResetIndex();
+            MainController.Instance.UIManager.Push(new DialogPanel(dialogData, listener));
+        }
     }
 }
+

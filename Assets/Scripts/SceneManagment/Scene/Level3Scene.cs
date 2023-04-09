@@ -1,4 +1,4 @@
-ï»¿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LoadSceneMode = UnityEngine.SceneManagement.LoadSceneMode;
@@ -13,17 +13,17 @@ using SceneManagement.SceneAttribute;
 namespace SceneManagement.Scene
 {
     [FadeIn, FadeOut]
-    public class Level2Scene : BaseScene
+    public class Level3Scene : BaseScene
     {
-        private static string sceneName = "Level_2";
+        private static string sceneName = "Level_3";
 
         public UIManager UIManager { get; private set; }
 
-        public Level2Scene() : base(sceneName) { }
+        public Level3Scene() : base(sceneName) { }
 
         public override void OnEnter()
         {
-            Debug.Log($"{this}ï¼šå¼€å§‹åŠ è½½åœºæ™¯{this.SceneName}");
+            Debug.Log($"{this}£º¿ªÊ¼¼ÓÔØ³¡¾°{this.SceneName}");
             //this.panelManager = new PanelManager(new PanelFactory());
             UnitySceneManager.LoadScene(this.SceneName);
             UnitySceneManager.sceneLoaded += SceneLoaded;
@@ -40,7 +40,7 @@ namespace SceneManagement.Scene
 
         private void SceneLoaded(UnityScene scene, LoadSceneMode mode)
         {
-            Debug.Log($"{this}ï¼šåœºæ™¯åŠ è½½å®Œæ¯•{this.SceneName}");
+            Debug.Log($"{this}£º³¡¾°¼ÓÔØÍê±Ï{this.SceneName}");
 
             UIManager = new UIManager();
             MainController.Instance.InputManager.PushLayer();
@@ -49,6 +49,3 @@ namespace SceneManagement.Scene
         }
     }
 }
-
-
-

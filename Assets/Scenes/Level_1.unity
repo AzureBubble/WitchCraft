@@ -499,7 +499,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288520816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01977706, y: 0.0061399937, z: -10}
+  m_LocalPosition: {x: 0.021025658, y: 0.00612998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3164,6 +3164,7 @@ GameObject:
   - component: {fileID: 2084905030}
   - component: {fileID: 2084905031}
   - component: {fileID: 2084905032}
+  - component: {fileID: 2084905033}
   m_Layer: 0
   m_Name: Alter-SwordBox
   m_TagString: Untagged
@@ -3281,6 +3282,7 @@ MonoBehaviour:
   textIndex: 0
   textAsset:
   - {fileID: 4900000, guid: 438120b6ee42ac64fba47c269d248912, type: 3}
+  - {fileID: 4900000, guid: 76d97ed5b94e7c04b8ba70c8c18a71d3, type: 3}
 --- !u!114 &2084905031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3294,7 +3296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 3
-  pickupKeyCode: 102
+  pickupKeyCode: 0
 --- !u!114 &2084905032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3308,6 +3310,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonHint: {fileID: 962863084}
+--- !u!114 &2084905033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084905024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f207c21571f736408d6cafe55ff7aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2142218493
 GameObject:
   m_ObjectHideFlags: 0

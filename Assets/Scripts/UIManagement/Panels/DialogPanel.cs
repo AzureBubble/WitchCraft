@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using DialogSystem;
+using DialogSystem.ButtonListener;
 using MainControl;
 
 namespace UIManagement.Panel
@@ -12,15 +13,19 @@ namespace UIManagement.Panel
     {
         public static readonly string Path = "UIManagement/Panels/DialogPanel";
         private IDialogData data;
+        private BaseButtonListener listener;
 
-        public DialogPanel(IDialogData data) : base(Path)
+        public DialogPanel(IDialogData data, BaseButtonListener listener = null) : base(Path)
         {
             this.data = data;
+            this.listener = listener;
         }
 
         public override void OnEnter()
         {
-            UITool.GetOrAddComponent<DialogShower>().SetDialogData(data);
+            var panel = UITool.GetOrAddComponent<DialogShower>();
+            panel.LoadBtnListener(listener);
+            panel.SetDialogData(data);
 
             UITool.GetOrAddComponentInChildren<Button>("SkipButton").onClick.AddListener(() =>
             {
