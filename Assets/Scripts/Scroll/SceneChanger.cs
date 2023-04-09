@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using SceneManagement.Scene;
+using MainControl;
+
 public class SceneChanger : MonoBehaviour
 {
     public string sceneName;
@@ -9,7 +12,8 @@ public class SceneChanger : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene(sceneName);
+            MainController.Instance.SceneManager.DynamicSetScene(new Level1Scene());
+            //SceneManager.LoadScene();
         }
     }
 }
