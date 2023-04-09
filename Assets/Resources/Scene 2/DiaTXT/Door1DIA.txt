@@ -1,9 +1,9 @@
-Assets/Resources/Scene 1/VP.jpg
+Dialogs/Drawing.png
 门
-一扇门，音乐听得见里面有什么被悬吊着的声音。
+一扇门，隐约听得见里面有什么被悬吊着的声音。
 
 
-Assets/Resources/Scene 1/VP.jpg
+Resources/Dialogs/Drawing.png
 门
 是否进入？
-Confirm/Enter Cancel/NotYet
+Confirm/是 Cancel/否

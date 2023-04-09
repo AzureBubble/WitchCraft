@@ -1,9 +1,14 @@
-Assets/Resources/Scene 1/VP.jpg
+Assets/Resources/Dialogs/Drawing.png
 武器架
-彩绘瑞兽纹路的兵器架上放着一把剑，用来招魂施法用。
-GetSwordBtn/TakeIt CancelBtn/GoAway
+彩绘瑞兽纹路的兵器架上放着一把剑，除了招魂施法似乎还有其它用途。
 
-Assets/Resources/Scene 1/VP.jpg
+
+Assets/Resources/Dialogs/Drawing.png
 武器架
-您已获得道具【剑】（按B打开背包查看或点击使用）
+是否拿取？
+GetSwordBtn/是 CancelBtn/否
+
+Assets/Resources/Dialogs/Drawing.png
+武器架
+您已获得道具【剑】！（按B打开背包查看并点击使用）
 
