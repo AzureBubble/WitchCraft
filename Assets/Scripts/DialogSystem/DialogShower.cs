@@ -1,9 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+using DialogSystem.ButtonListener;
 using UIManagement.UITools;
 using MainControl;
 
@@ -23,6 +24,7 @@ namespace DialogSystem
         private List<Button> buttons;
 
         private IDialogData data;
+        private BaseButtonListener listener;
         Coroutine mouseEventHandler;
 
         private void Awake()
@@ -109,17 +111,30 @@ namespace DialogSystem
         {
             foreach(string button in buttons)
             {
+                //获取button配置
                 var btnNameTextPair = button.Split("/");
                 string btnName = btnNameTextPair[0], btnText = btnNameTextPair[1];
                 GameObject btnObj = GameObject.Instantiate(dialogButtonPrefab, tool.targets["Options"].transform);
                 btnObj.name = btnName;
                 new UITool(btnObj).GetOrAddComponentInChildren<TextMeshProUGUI>("Text (TMP)").text = btnText;
 
+                //生成button
                 Button btn = btnObj.GetComponent<Button>();
                 this.buttons.Add(btn);
+                
+                // 给Button添加点击事件
                 btn.onClick.AddListener(() => {
                     state = DialogState.Wait;
                 });
+                if (listener && listener.Listeners.ContainsKey(btnName))
+                {
+                    foreach (var listener in listener.Listeners[btnName])
+                    {
+                        btn.onClick.AddListener(() => {
+                            listener.Invoke(this);
+                        });
+                    }
+                }
             }
             yield break;
         }
@@ -152,6 +167,11 @@ namespace DialogSystem
         {
             this.data = data;
             state = DialogState.Ready;
+        }
+
+        public void LoadBtnListener(BaseButtonListener listener)
+        {
+            this.listener = listener;
         }
 
     }

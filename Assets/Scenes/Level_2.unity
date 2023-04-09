@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 62846591}
   - component: {fileID: 62846595}
   - component: {fileID: 62846596}
+  - component: {fileID: 62846597}
   m_Layer: 0
   m_Name: InterDoor2
   m_TagString: Untagged
@@ -339,7 +340,7 @@ MonoBehaviour:
   dialogKeyCode: 102
   textIndex: 0
   textAsset:
-  - {fileID: 0}
+  - {fileID: 4900000, guid: 89aef1af437c2694883a7a78587c6e8e, type: 3}
 --- !u!114 &62846596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,6 +354,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonHint: {fileID: 231676843}
+--- !u!114 &62846597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62846590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74bd33f1c2d30ef48a53ef30da59b062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &213104305
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,7 +590,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256404356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.017742872, y: 0.006160021, z: -10}
+  m_LocalPosition: {x: 0.02103281, y: 0.0061399937, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1096,6 +1109,7 @@ GameObject:
   - component: {fileID: 1275649018}
   - component: {fileID: 1275649019}
   - component: {fileID: 1275649020}
+  - component: {fileID: 1275649021}
   m_Layer: 0
   m_Name: InterDoor
   m_TagString: Untagged
@@ -1226,6 +1240,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonHint: {fileID: 2093258523}
+--- !u!114 &1275649021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275649014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5377e428af6f994dbcbafe6f1df357f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1330909920
 PrefabInstance:
   m_ObjectHideFlags: 0
