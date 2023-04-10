@@ -1,3 +1,5 @@
+using MainControl;
+using SceneManagement.Scene;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,13 +14,13 @@ public class AutoDialog : MonoBehaviour
     private Text dialogText;
     private bool isSkipping = false; // Flag to determine if the user is skipping the conversation
 
-    void Start()
+    private void Start()
     {
         dialogText = GetComponent<Text>();
         StartCoroutine(ShowDialog());
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -26,10 +28,14 @@ public class AutoDialog : MonoBehaviour
         }
     }
 
-    IEnumerator ShowDialog()
+    private IEnumerator ShowDialog()
     {
         foreach (string line in dialogue)
         {
+            if (line == string.Empty)
+            {
+                break;
+            }
             if (isSkipping) // Check if the user is skipping the conversation
             {
                 dialogText.text = ""; // Clear the dialog text if the user skips
@@ -44,7 +50,9 @@ public class AutoDialog : MonoBehaviour
             dialogText.text = ""; // Clear the dialog text after each line
         }
         // Automatically transition to the next scene when the conversation is finished
-        SceneManager.LoadScene(nextSceneName);
+        //SceneManager.LoadScene(nextSceneName);
+        yield return new WaitForSeconds(0.05f);
+        MainController.Instance.SceneManager.DynamicSetScene(new Level1Scene());
     }
 
     public void SkipConversation()

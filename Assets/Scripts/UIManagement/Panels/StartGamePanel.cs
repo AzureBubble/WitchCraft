@@ -12,13 +12,15 @@ namespace UIManagement.Panel
     {
         public static readonly string Path = "UIManagement/Panels/StartGamePanel";
 
-        public StartGamePanel() : base(Path) { }
+        public StartGamePanel() : base(Path)
+        {
+        }
 
         public override void OnEnter()
         {
             UITool.GetOrAddComponentInChildren<Button>("StartBtn").onClick.AddListener(() =>
             {
-                MainController.Instance.SceneManager.DynamicSetScene(new Level1Scene());
+                MainController.Instance.SceneManager.DynamicSetScene(new StartScrollScene());
             });
 
             UITool.GetOrAddComponentInChildren<Button>("LoadBtn").onClick.AddListener(() =>
@@ -36,8 +38,5 @@ namespace UIManagement.Panel
                 Application.Quit();
             });
         }
-
     }
 }
-
-
