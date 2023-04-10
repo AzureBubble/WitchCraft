@@ -1,14 +1,14 @@
-Assets/Resources/Dialogs/Drawing.png
+Dialogs/Drawing
 武器架
 彩绘瑞兽纹路的兵器架上放着一把剑，除了招魂施法似乎还有其它用途。
 
 
-Assets/Resources/Dialogs/Drawing.png
+Dialogs/Drawing
 武器架
 是否拿取？
 GetSwordBtn/是 CancelBtn/否
 
-Assets/Resources/Dialogs/Drawing.png
+Dialogs/Drawing
 武器架
 您已获得道具【剑】！（按B打开背包查看并点击使用）
 
