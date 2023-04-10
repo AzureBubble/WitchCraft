@@ -499,7 +499,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288520816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.011087656, y: 0.006200075, z: -10}
+  m_LocalPosition: {x: 0.013029575, y: 0.0061900616, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3006,6 +3006,7 @@ GameObject:
   - component: {fileID: 2082942540}
   - component: {fileID: 2082942541}
   - component: {fileID: 2082942539}
+  - component: {fileID: 2082942542}
   m_Layer: 0
   m_Name: Alter-lampBox
   m_TagString: Untagged
@@ -3123,6 +3124,7 @@ MonoBehaviour:
   textIndex: 0
   textAsset:
   - {fileID: 4900000, guid: cf41e0c56c572d04dbbbc1af298751fa, type: 3}
+  - {fileID: 4900000, guid: 9cf07a06761ed40ef96e75c1763860be, type: 3}
 --- !u!114 &2082942540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3150,6 +3152,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonHint: {fileID: 1264560754}
+--- !u!114 &2082942542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082942533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fdb56d8d67b4222b8286cbb5a97756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2084905024
 GameObject:
   m_ObjectHideFlags: 0
