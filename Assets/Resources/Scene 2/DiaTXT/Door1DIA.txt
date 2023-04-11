@@ -1,9 +1,9 @@
-Dialogs/Drawing.png
+Dialogs/Drawing
 门
 一扇门，隐约听得见里面有什么被悬吊着的声音。
 
 
-Resources/Dialogs/Drawing.png
+Dialogs/Drawing
 门
 是否进入？
 Confirm/是 Cancel/否

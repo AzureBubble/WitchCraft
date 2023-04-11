@@ -87,7 +87,10 @@ namespace DialogSystem
 
             SingleDialog dialog = data.GetNext();
             Debug.Log($"{this}: Buttons Count {dialog.Buttons.Count}");
-            avatar.sprite = dialog.Avatar;
+
+            var avatarShower = StartCoroutine(ResizeAvatarCoroutine(dialog.Avatar));
+            yield return avatarShower;
+
             speaker.text = dialog.Speaker;
             foreach(char each in dialog.Content)
             {
@@ -105,6 +108,20 @@ namespace DialogSystem
 
             state = DialogState.Block;
 
+        }
+
+        private IEnumerator ResizeAvatarCoroutine(Sprite sprite)
+        {
+            if (sprite == null)
+            {
+                avatar.sprite = sprite;
+                yield break;
+            }
+            float width = avatar.GetComponent<RectTransform>().sizeDelta.x;
+            float scale = width / sprite.bounds.size.x;
+            float height = sprite.bounds.size.y * scale;
+            avatar.GetComponent<RectTransform>().sizeDelta = new Vector2(avatar.GetComponent<RectTransform>().sizeDelta.x, height);
+            avatar.sprite = sprite;
         }
 
         private IEnumerator ShowDialogButtonCoroutine(List<string> buttons)

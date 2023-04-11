@@ -1,9 +1,9 @@
-null
+Dialogs/Drawing
 灯
 铜制小人灯，拿着能照明。是否拿取？
 GetLampBtn/是 CancelBtn/否
 
-null
+Dialogs/Drawing
 灯
 您已获得道具【灯】！（按B打开背包查看并点击使用）
 
