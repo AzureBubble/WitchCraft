@@ -112,12 +112,16 @@ namespace DialogSystem
 
         private IEnumerator ResizeAvatarCoroutine(Sprite sprite)
         {
+            if (sprite == null)
+            {
+                avatar.sprite = sprite;
+                yield break;
+            }
             float width = avatar.GetComponent<RectTransform>().sizeDelta.x;
             float scale = width / sprite.bounds.size.x;
             float height = sprite.bounds.size.y * scale;
             avatar.GetComponent<RectTransform>().sizeDelta = new Vector2(avatar.GetComponent<RectTransform>().sizeDelta.x, height);
             avatar.sprite = sprite;
-            yield break;
         }
 
         private IEnumerator ShowDialogButtonCoroutine(List<string> buttons)

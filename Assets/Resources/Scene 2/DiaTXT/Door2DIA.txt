@@ -1,9 +1,9 @@
-Assets/Resources/Dialogs/Drawing.png
+Dialogs/Drawing
 门
 能听见有人打呼，还有其它悉悉索索的动作听不大清。
 
 
-Assets/Resources/Dialogs/Drawing.png
+Dialogs/Drawing
 门
 是否进入？
 Confirm/是 Cancel/否
