@@ -114,6 +114,7 @@ namespace DialogSystem
         {
             if (sprite == null)
             {
+                Debug.LogWarning($"{this}: avatar is null.");
                 avatar.sprite = sprite;
                 yield break;
             }
