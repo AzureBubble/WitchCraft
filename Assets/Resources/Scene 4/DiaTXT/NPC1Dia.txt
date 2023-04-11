@@ -1,1 +1,9 @@
-这个人睡得正熟，鼾声格外大。
+Dialogs/Drawing
+???
+这个人睡得正熟，打呼的声音格外大。
+
+
+Dialogs/Drawing
+门
+是否进入？
+Confirm/是 Cancel/否

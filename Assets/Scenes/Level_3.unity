@@ -1167,6 +1167,7 @@ GameObject:
   - component: {fileID: 789397927}
   - component: {fileID: 789397928}
   - component: {fileID: 789397929}
+  - component: {fileID: 789397930}
   m_Layer: 0
   m_Name: InterStaff
   m_TagString: Untagged
@@ -1256,7 +1257,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogKeyCode: 102
   textIndex: 0
-  textAsset: []
+  textAsset:
+  - {fileID: 4900000, guid: 20d990a99fbacf841b3efc84fa83aed7, type: 3}
 --- !u!114 &789397928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1296,6 +1298,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8, y: 16.4}
   m_EdgeRadius: 0
+--- !u!114 &789397930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789397924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36353b6d15c28fa44b428f4e63242c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: 0
+  pickupKeyCode: 0
 --- !u!1 &793666136 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4394838257596837677, guid: 89d3877f2957c0f4394cb69d23eac556, type: 3}
@@ -2817,7 +2833,7 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 1}
+  m_Color: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
   m_Intensity: 1.33
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
