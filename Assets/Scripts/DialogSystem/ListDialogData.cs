@@ -48,8 +48,8 @@ namespace DialogSystem
                 foreach (List<string> each in data)
                 {
                     string avatar_path = each[0];
+                    Sprite sprite = Resources.Load<Sprite>(avatar_path.Trim());
 
-                    Sprite sprite = Resources.Load<Sprite>("Dialogs/Drawing");
                     string speaker = each[1];
                     string content = each[2];
 
