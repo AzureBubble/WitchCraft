@@ -76,8 +76,7 @@ namespace Bag
             switch (itemName)
             {
                 case ItemName.Item:
-                    itemList.Remove(itemName);
-                    backPackUI.RemoveItemUI(itemName);
+                    RemoveItem(itemName);
                     break;
 
                 case ItemName.Light:
@@ -104,6 +103,17 @@ namespace Bag
                     Debug.Log("使用 " + itemName + " 成功！");
                     if (success)
                     {
+                        RemoveItem(itemName);
+                    }
+                    break;
+
+                case ItemName.Staff:
+                    var ghost = GameObject.Find("Ghost");
+                    if (ghost != null)
+                    {
+                        Debug.Log($"{this}: find ghost {ghost}");
+                        Debug.Log("使用 " + itemName + " 成功！");
+                        Destroy(ghost);
                         RemoveItem(itemName);
                     }
                     break;
