@@ -22,5 +22,17 @@ namespace UIManagement.Panel
                 MainController.Instance.SceneManager.DynamicSetScene(new StartGameScene());
             });
         }
+
+        public override void OnPause()
+        {
+            base.OnPause();
+            UITool.GetOrAddComponent<CanvasGroup>().interactable = false;
+        }
+
+        public override void OnResume()
+        {
+            base.OnResume();
+            UITool.GetOrAddComponent<CanvasGroup>().interactable = true;
+        }
     }
 }

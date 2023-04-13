@@ -4,6 +4,7 @@ using UnityEngine;
 
 using SceneManagement;
 using SceneManagement.Scene;
+using UIManagement.Panel;
 using UIManagement.UIManager;
 using InputManagement;
 using Bag;
@@ -92,6 +93,8 @@ namespace MainControl
 
         public void OnDefeat()
         {
+            GameOver = true;
+            UIManager.Push(new DeadPanel());
         }
 
         public void SetAsChildObject(GameObject obj)
