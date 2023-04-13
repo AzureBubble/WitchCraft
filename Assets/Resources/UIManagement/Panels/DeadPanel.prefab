@@ -561,8 +561,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u8FD4\u56DE\u4E3B\u83DC\u5355"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 33df451fa371af347a15bfc057e27fc8, type: 2}
-  m_sharedMaterial: {fileID: -5459410016884986833, guid: 33df451fa371af347a15bfc057e27fc8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 69fbdfdf1b915044185308decc2de852, type: 2}
+  m_sharedMaterial: {fileID: 772624662295990225, guid: 69fbdfdf1b915044185308decc2de852, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
