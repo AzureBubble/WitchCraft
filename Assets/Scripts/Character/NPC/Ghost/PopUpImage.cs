@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class PopUpImage : MonoBehaviour
 {
     public Image popupImage;
+    [SerializeField]
+    private Ghost ghost;
     private bool isDisplaying = false;
 
     private void Start()
@@ -25,6 +27,7 @@ public class PopUpImage : MonoBehaviour
         {
             popupImage.gameObject.SetActive(true);
             isDisplaying = true;
+            ghost.StartTime();
         }
     }
 

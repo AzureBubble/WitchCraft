@@ -20,7 +20,7 @@ public class Ghost : MonoBehaviour
     private void Start()
     {
         //TODO:注释这个方法，对话完后调用这个方法，等待一定时间后，开始追逐玩家
-        StartTime();
+        //StartTime();
     }
 
     // Update is called once per frame
@@ -48,6 +48,8 @@ public class Ghost : MonoBehaviour
 
     public void StartTime()
     {
+        if (!isWaiting)
+            return;
         isWaiting = false;
         timer = Time.time + waitForAttack;
     }
