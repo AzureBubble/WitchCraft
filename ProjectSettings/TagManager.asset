@@ -53,3 +53,6 @@ TagManager:
   - name: Front
     uniqueID: 4082489931
     locked: 0
+  - name: Ghost
+    uniqueID: 1585809511
+    locked: 0
