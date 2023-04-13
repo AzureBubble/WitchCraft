@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+using MainControl;
+
 public class Ghost : MonoBehaviour
 {
     public Collider2D attackArea;
@@ -56,6 +58,7 @@ public class Ghost : MonoBehaviour
         {
             isWaiting = true;
             Debug.Log("You Lose!");
+            MainController.Instance.OnDefeat();
         }
     }
 }
