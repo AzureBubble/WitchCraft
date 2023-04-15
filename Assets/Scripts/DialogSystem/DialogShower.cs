@@ -25,7 +25,7 @@ namespace DialogSystem
 
         private IDialogData data;
         private BaseButtonListener listener;
-        Coroutine mouseEventHandler;
+        private Coroutine mouseEventHandler;
 
         private void Awake()
         {
@@ -37,7 +37,7 @@ namespace DialogSystem
         }
 
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             avatar = tool.GetOrAddComponentInChildren<Image>("Role");
             speaker = tool.GetOrAddComponentInChildren<TextMeshProUGUI>("Speaker");
@@ -45,21 +45,21 @@ namespace DialogSystem
 
             mouseEventHandler = StartCoroutine(MouseHandlerCoroutine());
             StartCoroutine(ShowDialogCoroutine());
-
         }
 
         private IEnumerator ShowDialogCoroutine()
         {
-            while(state != DialogState.Ready)
+            while (state != DialogState.Ready)
             {
                 yield return null;
             }
 
-            while(state != DialogState.End)
+            while (state != DialogState.End)
             {
                 Coroutine singleDialogCoroutine = StartCoroutine(ShowSingleDialogCoroutine());
                 yield return singleDialogCoroutine;
-                yield return new WaitUntil(() => {
+                yield return new WaitUntil(() =>
+                {
                     return state != DialogState.Block;
                 });
             }
@@ -79,7 +79,7 @@ namespace DialogSystem
             state = DialogState.Show;
             speaker.text = "";
             content.text = "";
-            foreach(Button button in buttons)
+            foreach (Button button in buttons)
             {
                 DestroyImmediate(button.gameObject);
             }
@@ -92,7 +92,7 @@ namespace DialogSystem
             yield return avatarShower;
 
             speaker.text = dialog.Speaker;
-            foreach(char each in dialog.Content)
+            foreach (char each in dialog.Content)
             {
                 if (state == DialogState.Block)
                 {
@@ -107,7 +107,6 @@ namespace DialogSystem
             yield return buttonShower;
 
             state = DialogState.Block;
-
         }
 
         private IEnumerator ResizeAvatarCoroutine(Sprite sprite)
@@ -127,7 +126,7 @@ namespace DialogSystem
 
         private IEnumerator ShowDialogButtonCoroutine(List<string> buttons)
         {
-            foreach(string button in buttons)
+            foreach (string button in buttons)
             {
                 //获取button配置
                 var btnNameTextPair = button.Split("/");
@@ -139,16 +138,20 @@ namespace DialogSystem
                 //生成button
                 Button btn = btnObj.GetComponent<Button>();
                 this.buttons.Add(btn);
-                
+
                 // 给Button添加点击事件
-                btn.onClick.AddListener(() => {
+                btn.onClick.AddListener(() =>
+                {
+                    MainController.Instance.BagManger.PlayClickMusic();
                     state = DialogState.Wait;
                 });
                 if (listener && listener.Listeners.ContainsKey(btnName))
                 {
                     foreach (var listener in listener.Listeners[btnName])
                     {
-                        btn.onClick.AddListener(() => {
+                        btn.onClick.AddListener(() =>
+                        {
+                            MainController.Instance.BagManger.PlayClickMusic();
                             listener.Invoke(this);
                         });
                     }
@@ -168,11 +171,13 @@ namespace DialogSystem
                         case DialogState.Show:
                             state = DialogState.Block;
                             break;
+
                         case DialogState.Block:
                             if (buttons.Count > 0)
                                 break;
                             state = DialogState.Wait;
                             break;
+
                         default:
                             break;
                     }
@@ -191,7 +196,6 @@ namespace DialogSystem
         {
             this.listener = listener;
         }
-
     }
 
     public enum DialogState

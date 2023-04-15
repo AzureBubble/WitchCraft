@@ -17,6 +17,8 @@ namespace Bag
 {
     public class BagManger : MonoBehaviour
     {
+        private AudioClip musicClip;
+        private AudioSource audioSource;
         public static readonly string Path = "MainControl/BagManger";
         public PlayerController player;
 
@@ -40,6 +42,22 @@ namespace Bag
         private IBackpackUI backPackUI = null;
 
         private Dictionary<string, GameObject> connectedItems = new Dictionary<string, GameObject>();
+
+        private void Start()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
+        private void OnEnable()
+        {
+            musicClip = Resources.Load<AudioClip>("AudioClips/GUI/Click_023");
+        }
+
+        public void PlayClickMusic()
+        {
+            audioSource.clip = musicClip;
+            audioSource.Play();
+        }
 
         #region 添加道具到背包中
 
@@ -72,6 +90,7 @@ namespace Bag
 
         public void UseProps(ItemName itemName)
         {
+            PlayClickMusic();
             Debug.Log($"{this}: {itemName} clicked");
             switch (itemName)
             {
