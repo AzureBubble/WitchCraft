@@ -29,10 +29,10 @@ namespace UIManagement.Panel
 
             UITool.GetOrAddComponentInChildren<Button>("SkipButton").onClick.AddListener(() =>
             {
+                MainController.Instance.BagManger.PlayClickMusic();
                 Debug.Log($"{this}: skip button pressed.");
                 MainController.Instance.UIManager.Pop();
             });
         }
-
     }
 }

@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
+    public Light2D light;
     public float speed = 3;              //角色移动速度
     private BoxCollider2D collcap;    //角色碰撞体
     private Animator anim;
@@ -23,11 +25,13 @@ public class PlayerController : MonoBehaviour
         Movement(); //角色移动函数
         Animationswitch();  //动画切换函数
     }
+
     public int Takelamp   //获取和设置是否拿灯
     {
         get { return lamp; }
         set { lamp = value; }
     }
+
     private void Movement() //角色移动函数
     {
         float horizontalmove = Input.GetAxis("Horizontal");   //水平移动
@@ -48,11 +52,11 @@ public class PlayerController : MonoBehaviour
 
     private void Animationswitch()   //动画切换函数
     {
-        if(lamp==0)
+        if (lamp == 0)
         {
             anim.SetBool("lamp", false);
         }
-        else if(lamp == 1)
+        else if (lamp == 1)
         {
             anim.SetBool("lamp", true);
         }
@@ -60,12 +64,12 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("rightwalk", false);
             anim.SetBool("leftwalk", false);
-            if(faceturn==1)
+            if (faceturn == 1)
             {
                 anim.SetBool("rightstand", true);
                 anim.SetBool("leftstand", false);
             }
-            else if(faceturn == -1)
+            else if (faceturn == -1)
             {
                 anim.SetBool("rightstand", false);
                 anim.SetBool("leftstand", true);

@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c043df8bc49f4046b192286a2eef0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  light: {fileID: 4318405698024832215}
   speed: 3
 --- !u!61 &4318405697646772279
 BoxCollider2D:
@@ -179,6 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4318405698024832208}
   - component: {fileID: 4318405698024832215}
+  - component: {fileID: 1156599284}
   m_Layer: 7
   m_Name: Light 2D
   m_TagString: Untagged
@@ -193,8 +195,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4318405698024832209}
-  m_LocalRotation: {x: -0, y: -0, z: -0.0397765, w: 0.9992086}
-  m_LocalPosition: {x: -0.03, y: 1.1, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.86, y: -1.8, z: -0.63}
   m_LocalScale: {x: 1.7513, y: 3.9192343, z: 1.7513}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -280,3 +282,23 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!95 &1156599284
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4318405698024832209}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 41958f497f579fa4a9ccf086a6a3891a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
