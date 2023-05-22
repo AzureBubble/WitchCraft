@@ -253,8 +253,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u795E\u4E3B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f5c5edc3fbc2de648963bf816a0554ca, type: 2}
-  m_sharedMaterial: {fileID: 3848049972955049108, guid: f5c5edc3fbc2de648963bf816a0554ca, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 69fbdfdf1b915044185308decc2de852, type: 2}
+  m_sharedMaterial: {fileID: 772624662295990225, guid: 69fbdfdf1b915044185308decc2de852, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535

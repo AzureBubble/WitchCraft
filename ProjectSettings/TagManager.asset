@@ -7,6 +7,7 @@ TagManager:
   - Collection
   - Interactive
   - Ghost
+  - Box
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Player
   - Ground
   - Collection
-  - 
+  - Box
   - Ghost
   - 
   - 
